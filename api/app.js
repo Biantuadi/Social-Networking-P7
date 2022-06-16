@@ -10,6 +10,9 @@ app.use(express.json());
 require('./db/mongoDB');
 
 //Routes
+const userRouter = require('./router/user');
+
+app.use("/api/auth", userRouter);
 
 
 
