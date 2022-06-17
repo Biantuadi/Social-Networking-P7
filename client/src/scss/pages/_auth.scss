@@ -89,4 +89,14 @@ main{
             color: white;
         }
     }
+    .email.error{
+        color: red;
+        margin-top: -1px;
+        font-weight: bold;
+    }
+    .password.error{
+        color: rgb(247, 49, 49);
+        margin-top: -1px;
+        font-weight: bold;
+    }
 }
