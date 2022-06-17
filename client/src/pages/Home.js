@@ -1,8 +1,10 @@
 import React from "react";
+import Auth from "../components/log/Auth"
+
 const Home = () => {
   return (
     <>
-      <h1>Home page</h1>
+     <Auth />
     </>
   );
 };
