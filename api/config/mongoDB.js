@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config( { path: "./config/.env" } );
 
 const mongoose = require("mongoose");
 const username = process.env.MONGODB_USERNAME;

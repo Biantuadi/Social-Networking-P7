@@ -1,20 +1,25 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });
 
 exports.signup = (req, res) => {
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
       const user = new User({
+        pseudo: req.body.pseudo,
         email: req.body.email,
         password: hash,
       });
       user
         .save()
-        .then((res) => res.status(201).json({ message: "Utilisateur créé !" }))
-        .catch((err) => res.status(400).json({ error: err }));
+        .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
+        .catch((err) =>
+          res
+            .status(409)
+            .json({ massage: "Utilisateur pas enregistrer", error })
+        );
     })
     .catch((err) => res.status(500).json({ error: err }));
 };
