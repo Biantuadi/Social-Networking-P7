@@ -9,7 +9,7 @@ app.use(function (req, res, next) {
     // Website you wish to allow to connect
     // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
-    res.setHeader('Access-Control-Allow-Origin', "http://localhost:3001");
+    res.setHeader('Access-Control-Allow-Origin', "http://localhost:4200");
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'POST');
@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 require("./db/mongoDB");
 
 //Routes
-const userRouter = require("./router/user");
+const userRouter = require("./router/user.routes");
 
 app.use("/api/auth", userRouter);
 
