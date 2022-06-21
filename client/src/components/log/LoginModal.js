@@ -13,7 +13,7 @@ const LoginModal = () => {
 
     axios({
       method: "POST",
-      url: `http://localhost:3000/api/auth/login`,
+      url: `http://localhost:3000/api/user/login`,
       withCredentials: true,
       data: {
         email: email,
@@ -21,9 +21,9 @@ const LoginModal = () => {
       },
     })
       .then((res) => {
-        if (res.data.success) {
-          window.location.reload();
-        }
+        // if (res.data.success) {
+          window.location = "/";
+        // }
       })
       .catch((err) => {
         if (err.response.data.email) {
@@ -37,8 +37,9 @@ const LoginModal = () => {
   };
 
   return (
-    <main>
-      <h1>Connexion</h1>
+    <div>
+      <h1>Log in</h1>
+      <br />
       <form
         action=""
         onSubmit={handleLogin}
@@ -54,7 +55,7 @@ const LoginModal = () => {
         />
         <div className="email error"></div>
 
-        <label htmlFor="password">Mot de passe</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
@@ -65,9 +66,9 @@ const LoginModal = () => {
         <div className="password error"></div>
         <br />
 
-        <input type="submit" value="Se connecter" className="btn-auth" />
+        <input type="submit" value="Login" className="btn-auth" />
       </form>
-    </main>
+    </div>
   );
 };
 

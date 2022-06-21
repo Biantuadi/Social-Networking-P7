@@ -19,9 +19,8 @@ const Auth = () => {
   };
 
   return (
-    <div className="container__auth">
-      <header>
-        <Logo />
+    <>
+      <div className="containerNavAuth">
         <ul className="auth__nav">
           <li
             onClick={handleModals}
@@ -38,15 +37,13 @@ const Auth = () => {
             Login
           </li>
         </ul>
-      </header>
-
-      <div className="back-ground">
-        <img src={background} alt="" />
       </div>
+      <br />
+      <br />
 
       {Signup && <SignupForm />}
       {Login && <LoginForm />}
-    </div>
+    </>
   );
 };
 

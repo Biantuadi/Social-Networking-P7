@@ -1,47 +1,7 @@
-.container__auth{
-    position: relative;
-    height: 100vh;
-}
 
 
-.auth__nav{
-    display: flex;
-    li{
-        position: relative;
-        margin-right: 35px;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.1s linear;
-        padding: 10px;
-        &::after{
-            content: '';
-            position: absolute;
-            bottom: 0px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            border-radius: 10px;
-            background-color: #007793;
-            opacity: 0;
-            transition: all 0.1s linear;
-        }
-        &:hover{
-            color: #007793;
-            &::after{
-                width: 100%;
-                opacity: 1;
-            }
-        }
-    }
-    .nav-active{
-        color: #007793;
-        &::after{
-            width: 100%;
-            opacity: 1;
-        }
-    }
-}
+
+
 
 main{
     position: absolute;
@@ -54,13 +14,41 @@ main{
     padding: 60px;
     white-space: nowrap;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    .containerNavAuth{
+        .auth__nav{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            li{
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                background: #027e9adc;
+                padding: 10px 15px;
+                border-radius: 20px;
+                border: 1px solid rgba(225, 223, 223, 0.949);
+                &:hover{
+                    background: #02647adc;
+                }
+            }
+            .nav-active{
+                color: #fff;
+                background: #02647adc;
+                &::after{
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
 
 .form__auth{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 40px;
     font-size: 17px;
     position: relative;
     input{
@@ -77,16 +65,18 @@ main{
     .btn-auth{
         width: 50%;
         margin: auto;
-        padding: 10px;
+        padding: 12px 10px;
         border-radius: 15px;
-        color: #000;
+        color: #fff;
         text-align: center;
-        border: 1px solid #007793;
-        font-size: 17px;
+        font-weight: bold;
+        background: #007893;
+        font-size: 18px;
+        border: none;
         cursor: pointer;
         transition: all 0.1s linear;
         &:hover{
-            background-color: #007893;
+            background-color: #03647a;
             color: white;
         }
     }
