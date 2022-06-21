@@ -18,9 +18,7 @@ exports.signup = (req, res) => {
         .save()
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
         .catch((err) =>
-          res
-            .status(409)
-            .json({ massage: "Utilisateur pas enregistrer", error })
+          res.status(409).json({ massage: "Utilisateur pas enregistrer", err })
         );
     })
     .catch((err) => res.status(500).json({ error: err }));
@@ -40,10 +38,16 @@ exports.login = (req, res, next) => {
               .status(401)
               .json({ password: "Mot de passe incorrect !" });
           }
-          res.cookie("token", jwt.sign({ userId: user._id }, process.env.JWT_KEY, { expiresIn: "24h" }), { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 });
+          res.cookie(
+            "token",
+            jwt.sign({ userId: user._id }, process.env.JWT_KEY, {
+              expiresIn: "24h",
+            }),
+            { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }
+          );
           res.status(200).json({
             userId: user._id,
-          })
+          });
         })
         .catch((err) => res.status(500).json({ error: err }));
     })
@@ -51,9 +55,10 @@ exports.login = (req, res, next) => {
 };
 
 exports.logout = (req, res, next) => {
-  res.clearCookie("token");
+  res.clearCookie("token", "", { maxAge: 1 });
   res.status(200).json({ message: "Vous êtes déconnecté" });
-}
+  // res.redirect("/");
+};
 
 //? `\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -61,23 +66,28 @@ exports.deleteUser = (req, res, next) => {
   User.findByIdAndDelete(req.params.id)
     .then((user) => res.status(200).json(user))
     .catch((err) => res.status(500).json({ error: err }));
-}
+};
 
 exports.updateUser = (req, res, next) => {
-  User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true, upsert: true, setDefaultsOnInsert: true })
+  User.findByIdAndUpdate(
+    req.params.id,
+    { $set: req.body },
+    { new: true, upsert: true, setDefaultsOnInsert: true }
+  )
     .then((user) => res.status(200).json(user))
     .catch((err) => res.status(500).json({ error: err }));
-}
+};
 
 exports.getUser = (req, res, next) => {
-  User.findById(req.params.id).select("-password")
+  User.findById(req.params.id)
+    .select("-password")
     .then((user) => res.status(200).json(user))
     .catch((err) => res.status(500).json({ error: err }));
-}
-
+};
 
 exports.getAllUsers = (req, res, next) => {
-  User.find().select("-password")
+  User.find()
+    .select("-password")
     .then((users) => res.status(200).json(users))
     .catch((err) => res.status(500).json({ error: err }));
-}
+};

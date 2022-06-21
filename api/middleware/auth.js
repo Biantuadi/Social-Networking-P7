@@ -1,16 +1,39 @@
 const jwt = require("jsonwebtoken");
+const UserModel = require("../models/user.model");
 
-export const auth = (req, res, next) => {
-  try {
-    const token = req.header("Authorization").replace("Bearer ", "");
-    const decoded = jwt.verify(token, process.env.JWT_KEY);
-    const userId = decodedToken.userId;
-    if (req.body.userId && req.body.userId !== userId) {
-      throw "User ID non valide";
-    } else {
-      next();
-    }
-  } catch (error) {
-    res.status(401).json({ error: error });
+module.exports.checkUser = (req, res, next) => {
+  const token = req.cookies.token;
+  if (token) {
+    jwt.verify(token, process.env.JWT_KEY, async (err, decodedToken) => {
+      if (err) {
+        res.locals.user = null;
+        res.cookie("jwt", "", { maxAge: 1 });
+        next();
+      } else {
+        let user = await UserModel.findById(decodedToken.userId);
+        res.locals.user = user;
+        next();
+      }
+    });
+  } else {
+    res.locals.user = null;
+    next();
+  }
+};
+
+module.exports.requireAuth = (req, res, next) => {
+  const token = req.cookies.token;
+  if (token) {
+    jwt.verify(token, process.env.JWT_KEY, async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+        res.send(200).json("no token");
+      } else {
+        console.log(decodedToken.userId);
+        next();
+      }
+    });
+  } else {
+    console.log("No token");
   }
 };
