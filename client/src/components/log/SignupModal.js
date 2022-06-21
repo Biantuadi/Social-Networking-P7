@@ -11,9 +11,10 @@ const SignupModal = () => {
 
     axios({
       method: "POST",
-      url: `http://localhost:3000/api/auth/signup`,
+      url: `http://localhost:3000/api/user/signup`,
       withCredentials: true,
       data : {
+        name : name,
         email: email,
         password: password,
       }
