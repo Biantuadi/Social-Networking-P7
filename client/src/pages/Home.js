@@ -1,7 +1,8 @@
 import React from "react";
 import Auth from "../components/log/Auth";
-import Logo from "../components/Logo";
 import { UidContext } from "../components/AppContex";
+import Logo from "../components/Logo";
+import Nav from "../components/Nav";
 
 const Home = () => {
   const uid = React.useContext(UidContext);
@@ -11,7 +12,7 @@ const Home = () => {
       {uid ? (
         <header>
           <Logo />
-          <i className="fa-solid fa-arrow-up-left-from-circle"></i>
+          <Nav />
         </header>
       ) : (
         <Auth />

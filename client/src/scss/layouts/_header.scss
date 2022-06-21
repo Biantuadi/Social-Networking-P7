@@ -1,6 +1,6 @@
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0.5rem 1rem;
     background-color: #fff;
@@ -10,9 +10,22 @@ header{
         display: flex;
         align-items: center;
     }
-    img{
+    img.imgLogo{
         width: 260px;
         height: 260px;
         margin-right: 0.5rem;
+    }
+    .iconsNav{
+        display: flex;
+        img.iconUser{
+            width: 30px;
+            height: 30px;
+            margin-right:40px;
+        }
+        img.iconLogout{
+            width: 30px;
+            height: 30px;
+            // margin-right: 20px;
+        }
     }
 }
