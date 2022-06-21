@@ -5,7 +5,6 @@ const postSchema = new mongoose.Schema(
     posterId: { type: String, required: true },
     message: { type: String, required: true },
     picture: { type: String },
-    video: { type: String },
     likes: { type: Array },
     comments: { type: Array },
     usersLiked: { type: Array },
@@ -13,7 +12,7 @@ const postSchema = new mongoose.Schema(
       type: [
         {
           commenterId: String,
-          commenterPseudo: String,
+          commenterName: String,
           comment: String,
           timestamp: Number,
         },

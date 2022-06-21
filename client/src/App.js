@@ -17,7 +17,6 @@ const App = () => {
       })
         .then((res) => { 
           setUid(res.data);
-          console.log(res.data);
         })
         .catch((err) => { console.log(err) });
     }

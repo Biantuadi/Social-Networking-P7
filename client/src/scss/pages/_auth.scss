@@ -1,5 +1,9 @@
 
-
+header.headerAuth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
@@ -80,8 +84,13 @@ main{
             color: white;
         }
     }
-    .email.error{
+    .name.error{
         color: red;
+        margin-top: -1px;
+        font-weight: bold;
+    }
+    .email.error{
+        color: rgb(247, 49, 49);
         margin-top: -1px;
         font-weight: bold;
     }

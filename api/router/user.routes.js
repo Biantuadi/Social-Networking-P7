@@ -10,10 +10,10 @@ router.post("/login", userCtrl.login);
 router.get("/logout", userCtrl.logout);
 
  
-// 
-router.get("/", userCtrl.getAllUsers);
+//  
+router.get("/", userCtrl.getAllUsers); //! admin only
 router.get("/:id", userCtrl.getUser);
 router.put("/:id", userCtrl.updateUser); 
-router.delete("/:id", userCtrl.deleteUser);
+router.delete("/:id", userCtrl.deleteUser); //! admin only
 
 module.exports = router;

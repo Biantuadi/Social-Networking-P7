@@ -1,31 +1,21 @@
 import React from "react";
 import Auth from "../components/log/Auth";
 import Logo from "../components/Logo";
+import { UidContext } from "../components/AppContex";
 
 const Home = () => {
+  const uid = React.useContext(UidContext);
+
   return (
     <>
-      {/* <Auth /> */}
-
-      <header>
-        <Logo />
-        <ul className="auth__nav">
-          <li
-            // onClick={(className = "nav-active")}
-            id="allPosts"
-            // className={( ) =>{ return "nav-active"}}
-          >
-            Posts
-          </li>
-          <li
-            // onClick=
-            id="myPosts"
-            // className={Login ? "nav-active" : ""}
-          >
-            Profil
-          </li>
-        </ul>
-      </header>
+      {uid ? (
+        <header>
+          <Logo />
+          <i className="fa-solid fa-arrow-up-left-from-circle"></i>
+        </header>
+      ) : (
+        <Auth />
+      )}
     </>
   );
 };

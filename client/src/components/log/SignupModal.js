@@ -1,5 +1,5 @@
 import React from "react";
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 const SignupModal = () => {
   const [email, setEmail] = React.useState("");
@@ -9,22 +9,46 @@ const SignupModal = () => {
   const handleSignup = (e) => {
     e.preventDefault();
 
+    const nameError = document.querySelector(".name.error");
+    const emailError = document.querySelector(".email.error");
+
+
     axios({
       method: "POST",
       url: `http://localhost:3000/api/user/signup`,
       withCredentials: true,
-      data : {
-        name : name,
+      data: {
+        name: name,
         email: email,
         password: password,
-      }
+      },
     })
-    .then((res) =>{ console.log(res);})
-
-
+      .then((res) => {
+        axios({
+          method: "POST",
+          url: `http://localhost:3000/api/user/login`,
+          withCredentials: true,
+          data: {
+            email: email,
+            password: password,
+          }
+        })
+          .then((res) => { window.location = "/"; })
+          .catch((err) => { console.log(err); });
+      }) 
+      .catch((err) => {
+        if (err.response.data.name) {
+          nameError.innerHTML = err.response.data.name;
+          emailError.innerHTML = "";
+        } else if (err.response.data.email) { 
+          nameError.innerHTML = "";
+          emailError.innerHTML = err.response.data.email;
+        }
+      });
   };
 
   return (
+    
     <div>
       <h1>Sign up</h1>
       <br />
@@ -35,7 +59,13 @@ const SignupModal = () => {
         className="form__auth"
       >
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <div className="name error"></div>
 
         <label htmlFor="email">Email</label>
         <input
@@ -44,14 +74,18 @@ const SignupModal = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <div className="email error"></div>
 
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <br />
 
-        <button type="submit" className="btn-auth">
-          Signup
-        </button>
+        <input type="submit" value="Signup" className="btn-auth" />
       </form>
     </div>
   );

@@ -12,14 +12,20 @@ exports.signup = (req, res) => {
       const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hash,
+        password: hash, 
       });
       user
         .save()
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-        .catch((err) =>
-          res.status(409).json({ massage: "Utilisateur pas enregistrer", err })
-        );
+        .catch((err) => {
+          if (err.message.includes("name"))
+            res.status(409).json({ error: err, name : "Nom déjà pris !" });
+
+          if (err.message.includes("email"))
+            res
+              .status(409) 
+              .json({ error: err, email : "Email déjà utilisé !" });
+        });
     })
     .catch((err) => res.status(500).json({ error: err }));
 };

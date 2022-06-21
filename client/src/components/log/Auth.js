@@ -20,6 +20,16 @@ const Auth = () => {
 
   return (
     <>
+
+    <div className="container">
+        <header className="headerAuth">
+          <Logo />
+        </header>
+
+        <div className="back-ground">
+          <img src={background} alt="" />
+        </div>
+      <main>
       <div className="containerNavAuth">
         <ul className="auth__nav">
           <li
@@ -43,6 +53,8 @@ const Auth = () => {
 
       {Signup && <SignupForm />}
       {Login && <LoginForm />}
+      </main>
+      </div>
     </>
   );
 };
