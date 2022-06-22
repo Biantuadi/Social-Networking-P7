@@ -3,11 +3,13 @@ header.headerAuth{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
 }
 
 
 
-main{
+main.mainAuth{
     position: absolute;
     left: 50%;
     top: 50%;

@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../img/Logos/icon-left-font-monochrome-black.png";
+import logo from "../img/Logos/icon-left-font-monochrome-white.png";
 import {NavLink} from 'react-router-dom';
 
 
-const Logo = () => {
+const Logo = ({white, black}) => {
   return (
     <div className="header__img">
       <NavLink to='/'>

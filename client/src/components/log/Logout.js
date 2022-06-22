@@ -18,12 +18,11 @@ const Logout = () => {
   };
   return (
     <>
-      <img
-        src={iconLogout}
-        alt="icon_logout"
+      <i
+        className="fa-solid fa-arrow-right-from-bracket"
         onClick={logout}
-        className="iconLogout"
-      />
+        // classNameName="iconLogout"
+      ></i>
     </>
   );
 };

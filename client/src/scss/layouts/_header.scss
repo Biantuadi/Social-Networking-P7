@@ -3,8 +3,8 @@ header{
     justify-content: space-around;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #fff;
-    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
+    background-color: rgb(7 7 7 / 90%);
+    // box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
     height: 90px;
     &__img{
         display: flex;
@@ -17,15 +17,21 @@ header{
     }
     .iconsNav{
         display: flex;
-        img.iconUser{
-            width: 30px;
-            height: 30px;
+        align-items: center;
+        .iconUser_container{
             margin-right:40px;
         }
-        img.iconLogout{
-            width: 30px;
-            height: 30px;
-            // margin-right: 20px;
+        i{
+            color: white;
+            cursor: pointer;
+            font-size: 25px;
+            transition: color 0.2s ease-in-out;
+            .icon-active{
+                color: #c21827;
+            }
+            .fa-solid.fa-heart:hover{
+                color: #c21827;
+            }
         }
     }
 }

@@ -5,10 +5,11 @@ import {NavLink} from 'react-router-dom';
 import Logout from './log/Logout';
 
 const Nav = () => {
+
     return (
         <nav className='iconsNav'>
-            <NavLink to='/profil' className='iconsNav__item'>
-            <img src={iconUser} alt="icon_User" className="iconUser" />
+            <NavLink to='/profil' className='iconUser_container'>
+            <i className="fas fa-user" ></i>
             </NavLink>
             <Logout />
         </nav>

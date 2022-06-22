@@ -45,3 +45,4 @@ const postRouter = require("./router/posts.routes");
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
 module.exports = app;
+ 

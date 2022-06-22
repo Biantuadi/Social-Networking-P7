@@ -1,0 +1,121 @@
+.main_container{
+    // background-color: #EAEAEA;
+    width: 100%;
+    height: 100%;
+    // height: 100vh;
+    main.mainContainer__post{
+        width: 50%;
+        height: 100%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .myPost{
+            background-color: #820813;
+            border-radius: 15px;
+            margin-top: 20px;
+            padding: 10px;
+            width: 550px;
+        }
+        .message{
+            width: 90%;
+            height: 120px;
+            border: 1px solid #820813;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 19px;
+            &:focus{
+                outline: none;
+            }
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #820813;
+                border-radius: 20px;
+                border: 1px solid #f1f1f1;
+            }
+        }
+        .img_injected{
+            img{
+                width: 90%;
+                height: 300px;
+                border-radius: 15px;
+                margin-top: 20px;
+                border: 2px solid #fff;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        .iconImgAndPost{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        i{
+            font-size: 25px;
+            color: #fff;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    }
+    .friend_Post_No_Img{
+        border-radius: 15px;
+            margin-top: 20px;
+            padding: 10px;
+            width: 550px;
+        background-color: rgb(7 7 7 / 90%);
+        color : #fff;
+        .nameAndimg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+        .viewPost{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width: 90%;
+                height: 300px;
+                border-radius: 15px;
+                border: 2px solid #fff;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        i{
+            font-size: 25px;
+            color: #fff;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .fa-heart:hover{
+            color: #c21827;
+        }
+        .icon-active{
+            color: #c21827;
+        }
+    }
+}
