@@ -11,13 +11,15 @@ const Profil = () => {
   return (
     <>
       {uid ? (
-        <div className="main_container">
+        <div className="mainContainer__100vh">
         <header>
           <Logo />
           <Nav />
         </header>
 
-        
+        <main className="">
+          <h1>boni</h1>
+        </main>
       </div>
       ) : (
         <Auth />

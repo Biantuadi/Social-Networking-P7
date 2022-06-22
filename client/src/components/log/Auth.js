@@ -30,9 +30,13 @@ const Auth = () => {
           </div>
         </header>
 
+        <div className="main__div__container">
+
         <div className="back-ground">
           <img src={background} alt="" />
         </div>
+
+        
         <main className="mainAuth">
           <div className="containerNavAuth">
             <ul className="auth__nav">
@@ -58,6 +62,7 @@ const Auth = () => {
           {Signup && <SignupForm />}
           {Login && <LoginForm />}
         </main>
+        </div>
       </div>
     </>
   );

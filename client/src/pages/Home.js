@@ -9,7 +9,6 @@ import axios from "axios";
 
 const Home = () => {
   const uid = React.useContext(UidContext);
-  const [message, setMessage] = React.useState("");
 
   // const handlePost = () => {
   //   axios({
@@ -35,27 +34,7 @@ const Home = () => {
           </header>
 
           <main className="mainContainer__post">
-            <div className="myPost">
-              {/* <input type="text" placeholder="message" className="message" /> */}
-              <textarea
-                name="text"
-                rows="14"
-                cols="10"
-                wrap="soft"
-                className="message"
-                placeholder="message"
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-              <div className="img_injected">
-                {/* <img src={imgTest} alt="" /> */}
-              </div>
-              <div className="iconImgAndPost">
-                <i className="fa-solid fa-image"></i>
-                <i className="fa-solid fa-paper-plane"></i>
-              </div>
-
-              
-            </div>
+            
 
             <div className="friend_Post_No_Img ">
                 <div className="nameAndimg">

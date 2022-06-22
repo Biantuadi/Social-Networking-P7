@@ -7,6 +7,19 @@ header.headerAuth{
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
 }
 
+.container{
+    position: relative;
+    height: 100vh;
+    .main__div__container{
+        position: relative;
+        height: 100%;
+    }
+    .back-ground{
+        position: absolute;
+    top: -25px;
+    left: -36px;
+    }
+}
 
 
 main.mainAuth{
@@ -14,7 +27,7 @@ main.mainAuth{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #007893dc;
+    background: #007893dd;
     color: white;
     border-radius: 30px;
     padding: 60px;
@@ -31,17 +44,18 @@ main.mainAuth{
                 font-size: 18px;
                 font-weight: bold;
                 cursor: pointer;
-                background: #027e9adc;
+                // background: #e31d2d;
                 padding: 10px 15px;
                 border-radius: 20px;
-                border: 1px solid rgba(225, 223, 223, 0.949);
+                // border: 1px solid rgba(225, 223, 223, 0.949);
                 &:hover{
-                    background: #02647adc;
+                    background: #fff;
+                    color: #007893dd;
                 }
             }
             .nav-active{
-                color: #fff;
-                background: #02647adc;
+                color: #007893dd;
+                background: #fff;
                 &::after{
                     width: 100%;
                     opacity: 1;
@@ -73,31 +87,31 @@ main.mainAuth{
         margin: auto;
         padding: 12px 10px;
         border-radius: 15px;
-        color: #fff;
+        color: #007893dd;
         text-align: center;
         font-weight: bold;
-        background: #007893;
+        background: #fff;
         font-size: 18px;
         border: none;
         cursor: pointer;
         transition: all 0.1s linear;
         &:hover{
-            background-color: #03647a;
-            color: white;
+            background-color: #007893dd;
+            color: #fff;
         }
     }
     .name.error{
-        color: red;
+        color: #c21826db;
         margin-top: -1px;
         font-weight: bold;
     }
     .email.error{
-        color: rgb(247, 49, 49);
+        color: #c21826db;
         margin-top: -1px;
         font-weight: bold;
     }
     .password.error{
-        color: rgb(247, 49, 49);
+        color: #c21826db;
         margin-top: -1px;
         font-weight: bold;
     }

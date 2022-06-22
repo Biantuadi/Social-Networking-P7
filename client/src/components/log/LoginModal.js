@@ -8,6 +8,7 @@ const LoginModal = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
 
@@ -32,7 +33,7 @@ const LoginModal = () => {
         } else if (err.response.data.password) {
             emailError.innerHTML = "";
           passwordError.innerHTML = err.response.data.password;
-        } 
+        }  
       });
   };
 
@@ -54,6 +55,7 @@ const LoginModal = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <div className="email error"></div>
+        <br />
 
         <label htmlFor="password">Password</label>
         <input
