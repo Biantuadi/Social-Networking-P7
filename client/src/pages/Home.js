@@ -44,42 +44,120 @@ const Home = () => {
             <Nav />
           </header>
 
-          <main className="mainContainer__post">
-            <div className="friend_Post_No_Img ">
-              <div className="container_name_img_time_update">
-                <div className="img-name-time">
-                  <img src={imgTest} alt="" />
-                  <div className="nameAndT">
-                  <h4>Kevin02</h4>
-                  <span>12 : 24</span>
+          <div className="section_container">
+            <article className="articleHome">
+              <div className="divContainer">
+                <h1>Article</h1>
+                <br />
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Impedit inventore officia earum perspiciatis ex neque cumque
+                dolores mollitia eaque fugit doloribus, doloremque est in
+                accusamus esse omnis vel placeat quibusdam maiores molestias
+                minus quos reprehenderit. Perspiciatis maiores in nihil
+                accusantium, dolorem saepe ex voluptatem doloremque culpa, vitae
+                possimus facere fuga?
+              </div>
+            </article>
+
+            <main className="mainContainer__post">
+              <div className="friend_Post_No_Img ">
+                <div className="container_name_img_time_update">
+                  <div className="img-name-time">
+                    <img src={imgTest} alt="" />
+                    <div className="nameAndT">
+                      <h4>Kevin02</h4>
+                      <span>12 : 24</span>
+                    </div>
+                  </div>
+
+                  <div className="update">
+                    <i className="fa-solid fa-pen-to-square"></i>
+                    <i className="fa-solid fa-trash-can"></i>
                   </div>
                 </div>
 
-                <div className="update">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                  <i class="fa-solid fa-trash-can"></i>
+                <div className="viewPost">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Excepturi, esse! Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Harum, exercitationem ratione, qui illo ab
+                    libero impedit culpa aspernatur fugiat earum recusandae amet
+                    consequatur optio dolorum sequi voluptates minus debitis
+                    aut.
+                  </p>
+                  <img
+                    src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
+                    alt=""
+                  />
+                </div>
 
+                <div className="iconImgAndPost">
+                  <i className="fa-regular fa-heart" onClick={changeHeart}></i>
+                  <i className="fa-regular fa-comment"></i>
                 </div>
               </div>
+              <br />
 
-              <div className="viewPost">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Excepturi, esse! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, exercitationem ratione, qui illo ab libero impedit culpa aspernatur fugiat earum recusandae amet consequatur optio dolorum sequi voluptates minus debitis aut.
-                </p>
-                <img
-                  src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
-                  alt=""
-                />
-              </div>
+              <div className="friend_Post_No_Img ">
+                <div className="container_name_img_time_update">
+                  <div className="img-name-time">
+                    <img src={imgTest} alt="" />
+                    <div className="nameAndT">
+                      <h4>Kevin02</h4>
+                      <span>12 : 24</span>
+                    </div>
+                  </div>
 
-              <div className="iconImgAndPost">
-                <i className="fa-regular fa-heart" onClick={changeHeart}></i>
-                <i className="fa-regular fa-comment"></i>
+                  <div className="update">
+                    <i className="fa-solid fa-pen-to-square"></i>
+                    <i className="fa-solid fa-trash-can"></i>
+                  </div>
+                </div>
+
+                <div className="viewPost">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Excepturi, esse! Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Harum, exercitationem ratione, qui illo ab
+                    libero impedit culpa aspernatur fugiat earum recusandae amet
+                    consequatur optio dolorum sequi voluptates minus debitis
+                    aut.
+                  </p>
+                  {/* <img
+                    src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
+                    alt=""
+                  /> */}
+                </div>
+
+                <div className="iconImgAndPost">
+                  <i className="fa-regular fa-heart" onClick={changeHeart}></i>
+                  <i className="fa-regular fa-comment"></i>
+                </div>
               </div>
-            </div>
-            <br />
-          </main>
+              <br />
+            </main>
+
+            <aside className="asideHome">
+              <div className="divContainer">
+                <h2>Utulisateurs</h2>
+                <br />
+                
+                <ul className="eachUser">
+                  <li className="user">
+                    <img src={imgTest} alt="" />
+                    <span className="name">Beni</span>
+                    
+                  </li>
+
+                  <li className="user">
+                    <img src={imgTest} alt="" />
+                    <span className="name">Beni</span>
+                    
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
         </div>
       ) : (
         <Auth />

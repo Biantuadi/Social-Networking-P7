@@ -1,4 +1,4 @@
-header{
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -6,48 +6,56 @@ header{
     background-color: #fff;
     // box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, .08);
     height: 90px;
-    &__img{
+
+    &__img {
         display: flex;
         align-items: center;
     }
-    img.imgLogo{
+
+    img.imgLogo {
         width: 260px;
         height: 260px;
         margin-right: 0.5rem;
     }
-    .iconsNav{
+
+    .iconsNav {
         display: flex;
         align-items: center;
         gap: 2.5rem;
-        .iconUser_container{
+
+        .iconUser_container {
             // margin-right:40px;
         }
-        i{
+
+        i {
             color: white;
-            background-color: rgba(190,18,60,1);
+            background-color: rgba(190, 18, 60, 1);
             cursor: pointer;
             font-size: 15px;
             padding: 10px;
             border-radius: 50%;
             transition: all 0.2s ease-in-out;
-            &:hover{
+
+            &:hover {
                 background-color: #fff;
-                color: rgba(190,18,60,1);
+                color: rgba(190, 18, 60, 1);
                 transform: scale(1.8);
             }
         }
-        .nouvelle__publication{
-            background-color: rgba(225,29,72,1);
+
+        .nouvelle__publication {
+            background-color: rgba(225, 29, 72, 1);
             padding: 15px 10px;
-            border : none;
+            border: none;
             color: #fff;
             font-weight: bold;
             border-radius: 10px;
             cursor: pointer;
             font-size: 15px;
             transition: all 0.2s ease-in-out;
-            &:hover{
-                background-color: rgba(190,18,60,1);
+
+            &:hover {
+                background-color: rgba(190, 18, 60, 1);
             }
 
         }

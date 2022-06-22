@@ -1,5 +1,5 @@
-.mainContainer__100vh{
-    main.mainContainer__new_post{
+.mainContainer__100vh {
+    main.mainContainer__new_post {
         width: 50%;
         // height: 100%;
         margin: auto;
@@ -8,8 +8,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         // background: #000;
-        h1{
+        h1 {
             color: rgb(225, 29, 72);
             font-size: 23px;
             font-weight: bold;
@@ -17,14 +18,16 @@
             margin-left: 25px;
             text-align: start;
         }
-        .myPost{
+
+        .myPost {
             background-color: #fff;
             border-radius: 15px;
             margin-top: 20px;
             padding: 10px;
             width: 550px;
         }
-        .message{
+
+        .message {
             width: 90%;
             height: 120px;
             border: 1px solid rgba(166, 166, 166, 0.955);
@@ -32,67 +35,62 @@
             margin-top: 10px;
             padding: 5px;
             font-size: 19px;
-            &:focus{
+
+            &:focus {
                 outline: none;
 
             }
+
             &::-webkit-scrollbar {
                 width: 12px;
             }
+
             &::-webkit-scrollbar-track {
                 background: #f1f1f1;
             }
+
             &::-webkit-scrollbar-thumb {
-                background: rgba(225,29,72,1);
+                background: rgba(225, 29, 72, 1);
                 border-radius: 20px;
                 border: 1px solid #f1f1f1;
             }
         }
-        .inputImg-container{
+
+        .inputImg-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        input.inputImg{
-            width: 90%;
-            height: 30px;
-            border: 1px solid rgba(166, 166, 166, 0.955);
-            border-radius: 5px;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 15px;
-            &:focus{
-                outline: none;
-            }
-            
-        }
-        label.labelImg{
-            // text-align: start;
-            margin-left: -345px;
-            // margin-left: 25px;
-            // color: rgb(225, 29, 72);
 
-
+        input.file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0
         }
-        .desapear{
+
+        .desapear {
             display: none;
         }
-        .appear{
+
+        .appear {
             display: inline-block;
             transition: all 0.3s ease-in-out;
         }
-        button{
+
+        button {
             background-color: transparent;
             border: none;
         }
-        i{
+
+        i {
             font-size: 25px;
-            color: rgba(225,29,72,1);
+            color: rgba(225, 29, 72, 1);
             margin-top: 10px;
             cursor: pointer;
         }
-        .iconImgAndPost{
+
+        .iconImgAndPost {
             display: flex;
             justify-content: center;
             align-items: center;

@@ -9,12 +9,7 @@ const NewPost = () => {
   const [message, setMessage] = React.useState("");
 
   // const handleSubmit = (e) => {}
-  const appearInputImg = () => {
-    const inputImg = document.querySelectorAll(".desapear");
-    inputImg.forEach((item) => {
-      item.classList.toggle("appear");
-    });
-  };
+  
 
   return (
     <div>
@@ -45,18 +40,19 @@ const NewPost = () => {
                 <br />
                 <br />
 
-                <div className="inputImg-container">
-                  <label htmlFor="InputImg" className="desapear labelImg">
-                    Lien Url de l'image
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="https://www.example.com"
-                    className="inputImg desapear"
+                <img
+                    src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
+                    alt=""
                   />
-                </div>
+
                 <div className="iconImgAndPost">
-                  <i className="fa-solid fa-image" onClick={appearInputImg}></i>
+                  <label htmlFor="file-input">
+                    <i
+                      className="fa-solid fa-image"
+                    ></i>
+                  </label>
+                  <input type="file" id="file-input" className="file-input" />
+
                   <button type="submit">
                     <i className="fa-solid fa-paper-plane"></i>
                   </button>
