@@ -40,10 +40,12 @@ const NewPost = () => {
                 <br />
                 <br />
 
-                <img
+                <div className="containerImg">
+                  <img
                     src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
                     alt=""
                   />
+                </div>
 
                 <div className="iconImgAndPost">
                   <label htmlFor="file-input">
