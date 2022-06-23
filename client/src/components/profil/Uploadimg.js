@@ -1,20 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { uploadPicture } from "../../actions/user.action";
+// import { useDispatch, useSelector } from "react-redux";
+// import { uploadPicture } from "../../actions/user.action";
 
 const Uploadimg = () => {
-  const [file, setFile] = React.useState(null);
-  const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userReducer);
+  // const [file, setFile] = React.useState(null);
+  // const dispatch = useDispatch();
+  // const userData = useSelector((state) => state.userReducer);
 
   const fileName = (e) => {
-    setFile(e.target.files[0]);
+    // setFile(e.target.files[0]);
 
-    const injectedImg = document.querySelector(".injected_img_path");
-    injectedImg.value = e.target.files[0].name;
-    injectedImg.classList.remove("desappear");
-    injectedImg.classList.add("appear");
-  };
+    // const injectedImg = document.querySelector(".injected_img_path");
+    // injectedImg.value = e.target.files[0].name;
+    // injectedImg.classList.remove("desappear");
+    // injectedImg.classList.add("appear");
+  }; 
 
   const handlePicture = (e) => {
     e.preventDefault();

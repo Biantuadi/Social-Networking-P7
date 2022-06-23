@@ -12,19 +12,17 @@ exports.signup = (req, res) => {
       const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hash, 
+        password: hash,
       });
       user
         .save()
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
         .catch((err) => {
           if (err.message.includes("name"))
-            res.status(409).json({ error: err, name : "Nom déjà pris !" });
+            res.status(409).json({ error: err, name: "Nom déjà pris !" });
 
           if (err.message.includes("email"))
-            res
-              .status(409) 
-              .json({ error: err, email : "Email déjà utilisé !" });
+            res.status(409).json({ error: err, email: "Email déjà utilisé !" });
         });
     })
     .catch((err) => res.status(500).json({ error: err }));
@@ -75,13 +73,9 @@ exports.deleteUser = (req, res, next) => {
 };
 
 exports.updateUser = (req, res, next) => {
-  User.findByIdAndUpdate(
-    req.params.id,
-    { $set: req.body },
-    { new: true, upsert: true, setDefaultsOnInsert: true }
-  )
-    .then((user) => res.status(200).json(user))
-    .catch((err) => res.status(500).json({ error: err }));
+  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: " utulisateur modifié !" }))
+    .catch((error) => res.status(400).json({ error: error }));
 };
 
 exports.getUser = (req, res, next) => {

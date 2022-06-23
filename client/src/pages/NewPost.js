@@ -34,6 +34,7 @@ const NewPost = () => {
                   wrap="soft"
                   className="message"
                   placeholder="message"
+                  value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
                 <br />
