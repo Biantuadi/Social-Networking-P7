@@ -1,13 +1,16 @@
 import React from "react";
 import Auth from "../components/log/Auth";
 import { UidContext } from "../components/AppContex";
+import { useSelector } from "react-redux";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import imgTest from "../img/test.jpg";
-import axios from "axios";
+// import axios from "axios";
 
 const Home = () => {
   const uid = React.useContext(UidContext);
+
+  const userData = useSelector((state) => state.userReducer)
 
   // const handlePost = () => {
   //   axios({
@@ -47,15 +50,9 @@ const Home = () => {
           <div className="section_container">
             <article className="articleHome">
               <div className="divContainer">
-                <h1>Article</h1>
+                <h1>Biographie</h1>
                 <br />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Impedit inventore officia earum perspiciatis ex neque cumque
-                dolores mollitia eaque fugit doloribus, doloremque est in
-                accusamus esse omnis vel placeat quibusdam maiores molestias
-                minus quos reprehenderit. Perspiciatis maiores in nihil
-                accusantium, dolorem saepe ex voluptatem doloremque culpa, vitae
-                possimus facere fuga?
+                <p>{userData.bio} </p>
               </div>
             </article>
 
@@ -142,6 +139,19 @@ const Home = () => {
                 <h2>Utulisateurs</h2>
                 <br />
                 
+                <ul className="eachUser">
+                  <li className="user">
+                    <img src={imgTest} alt="" />
+                    <span className="name">Beni</span>
+                    
+                  </li>
+
+                  <li className="user">
+                    <img src={imgTest} alt="" />
+                    <span className="name">Beni</span>
+                    
+                  </li>
+                </ul>
                 <ul className="eachUser">
                   <li className="user">
                     <img src={imgTest} alt="" />

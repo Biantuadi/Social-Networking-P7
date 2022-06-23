@@ -21,17 +21,61 @@
         padding: 10px;
         width: 700px;
         margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
 
+    }
+    .conatainer_name_profilImg{
+        margin-left: 0;
+        position: relative;
+        margin-bottom: 78px;
+        form.upload_img{
+            position: absolute;
+            top: 210px;
+            right: 60px;
+
+        }
+        i {
+            font-size: 33px;
+            color: rgba(225, 29, 72, 1);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        input.file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0
+        }
+        .Upload{
+            position: absolute;
+            top: 88px;
+            bottom: -84px;
+            right: 51px;
+            padding: 10px 20px;
+            background-color: rgb(225, 29, 72);
+            color: #fff;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            border: none;
+            &:hover {
+                background-color: rgb(190, 18, 60);
+            }
+
+        }
     }
 
     .containerImg {
-
-        // border: red 4px solid;
         img {
+            border: 1px solid rgba(225, 29, 72, 1);
             width: 200px;
             height: 200px;
             border-radius: 50%;
+            padding: 3px;
         }
+        
     }
 
     .nameInput-container {
@@ -46,7 +90,7 @@
             color: #000;
             font-weight: bold;
             text-align: start;
-            margin-left: -572px;
+            margin-left: -192px;
         }
 
         input.name {
@@ -70,14 +114,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
-
+        margin-top: 35px;
+        
         label {
+            margin-left: -145px;
             font-size: 17px;
             color: #000;
             font-weight: bold;
             text-align: start;
-            margin-left: -529px;
         }
 
         .bio {
@@ -111,30 +155,35 @@
     }
 
 
-    input.file-input {
-        visibility: hidden;
-        width: 0;
-        height: 0
-    }
+    
 
 
     button {
-        background-color: transparent;
+        background-color: rgb(225, 29, 72);
+        width: 150px;
+        height: 40px;
         border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: rgb(190, 18, 60);
+        }
+    }
+    i {
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+
     }
 
-    i {
-        font-size: 25px;
-        color: rgba(225, 29, 72, 1);
-        margin-top: 10px;
-        cursor: pointer;
-    }
+    
 
     .iconImgAndPost {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 100px;
         padding-top: 20px;
         padding-bottom: 20px;
     }

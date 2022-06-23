@@ -12,6 +12,7 @@ const Nav = () => {
                 
             <NavLink to='/profil' className='iconUser_container'>
             <i className="fas fa-user" ></i>
+            
             </NavLink>
             <Logout />
         </nav>

@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Logo from "../Logo";
 import Nav from "../Nav";
+import Uploadimg from "./Uploadimg";
 
 const UpdateProfil = () => {
   const [message, setMessage] = React.useState("");
+
+  const userData = useSelector((state) => state.userReducer);
+
   return (
     <div className="mainContainer__100vh">
       <header>
@@ -14,25 +19,27 @@ const UpdateProfil = () => {
       <main className="main-profil">
         <div className="my-profil">
           <br />
-          <h1>
-            Profil de <span>valeur dynamique</span>
-          </h1>
-          <br />
-          <br />
-          <div className="containerImg">
-            <img
-              src="https://theatrum-belli.com/wp-content/uploads/2019/03/Soldat-avec-syst%C3%A8me-FELIN.jpg"
-              alt=""
-            />
+          <div className="conatainer_name_profilImg">
+            <h1>
+              Profil de <span>{userData.name} </span>
+            </h1>
+            <br />
+            <br />
+
+            <div className="containerImg">
+              <img src={userData.imageUrl} alt="" />
+            </div>
+
+            <Uploadimg />
           </div>
+
           <form className="forContainer">
-            {/* <input type="text" placeholder="message" className="message" /> */}
             <div className="nameInput-container">
               <label htmlFor="name">Nom</label>
               <input
                 type="text"
                 id="name"
-                placeholder="valeur dynamique"
+                placeholder={userData.name}
                 className="name"
               />
             </div>
@@ -45,23 +52,17 @@ const UpdateProfil = () => {
                 cols="10"
                 wrap="soft"
                 className="bio"
-                placeholder="valeur dynamique"
+                placeholder="hey hey hey"
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
             <br />
-            <br />
-            <br />
 
             <div className="iconImgAndPost">
-              <label htmlFor="file-input">
-                <i className="fa-solid fa-image"></i>
-              </label>
-              <input type="file" id="file-input" className="file-input" />
 
-              <button type="submit">
-                <i className="fa-solid fa-paper-plane"></i>
-              </button>
+            <button type="submit" className="">
+              <i className="fa-solid fa-paper-plane"></i>
+            </button>
             </div>
           </form>
         </div>
