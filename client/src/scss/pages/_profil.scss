@@ -22,35 +22,55 @@
         width: 700px;
         margin-bottom: 30px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
     }
-    .conatainer_name_profilImg{
-        margin-left: 0;
-        position: relative;
-        margin-bottom: 78px;
-        form.upload_img{
-            position: absolute;
-            top: 210px;
-            right: 60px;
+
+    .conatainer_name_profilImg {
+        padding: 11px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        form.upload_img {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            letter-spacing: 10px;
 
         }
+        .injected_img_path{
+            margin-top: 19px;
+            width: 106%;
+            height: 37px;
+            border: 1px solid rgba(166, 166, 166, 0.955);
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            color: #b5b5b5b5;
+            background-color: #fff;
+            &:focus {
+                outline: none;
+            }
+
+        }
+
         i {
             font-size: 33px;
             color: rgba(225, 29, 72, 1);
             margin-top: 10px;
             cursor: pointer;
         }
+
         input.file-input {
             visibility: hidden;
             width: 0;
             height: 0
         }
-        .Upload{
-            position: absolute;
-            top: 88px;
-            bottom: -84px;
-            right: 51px;
+
+        .Upload {
             padding: 10px 20px;
             background-color: rgb(225, 29, 72);
             color: #fff;
@@ -60,10 +80,15 @@
             font-weight: bold;
             transition: all 0.3s ease-in-out;
             border: none;
+
             &:hover {
                 background-color: rgb(190, 18, 60);
             }
 
+        }
+
+        .icon_uploadImg {
+            padding-bottom: 11px;
         }
     }
 
@@ -75,7 +100,7 @@
             border-radius: 50%;
             padding: 3px;
         }
-        
+
     }
 
     .nameInput-container {
@@ -115,7 +140,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 35px;
-        
+
         label {
             margin-left: -145px;
             font-size: 17px;
@@ -155,7 +180,7 @@
     }
 
 
-    
+
 
 
     button {
@@ -167,10 +192,12 @@
         font-weight: bold;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+
         &:hover {
             background-color: rgb(190, 18, 60);
         }
     }
+
     i {
         font-size: 20px;
         color: #fff;
@@ -178,7 +205,7 @@
 
     }
 
-    
+
 
     .iconImgAndPost {
         display: flex;
@@ -186,5 +213,13 @@
         align-items: center;
         padding-top: 20px;
         padding-bottom: 20px;
+    }
+
+    .desappear {
+        display: none;
+    }
+
+    .appear {
+        display: inline-block;
     }
 }

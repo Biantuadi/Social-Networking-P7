@@ -6,10 +6,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./actions/user.action";
 
-
 const App = () => {
   const [uid, setUid] = useState(null);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,17 +17,18 @@ const App = () => {
         url: `http://localhost:3000/jwtid`,
         withCredentials: true,
       })
-        .then((res) => { 
+        .then((res) => {
           setUid(res.data);
         })
-        .catch((err) => { console.log(err) });
-    }
+        .catch((err) => {
+          console.log(err);
+        });
+    };
     fetchData();
 
     if (uid) {
       dispatch(getUser(uid));
     }
-
   }, [uid]);
 
   return (

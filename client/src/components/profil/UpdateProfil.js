@@ -9,6 +9,8 @@ const UpdateProfil = () => {
 
   const userData = useSelector((state) => state.userReducer);
 
+  const handleSubmit = (e) => {}
+
   return (
     <div className="mainContainer__100vh">
       <header>
@@ -18,7 +20,7 @@ const UpdateProfil = () => {
 
       <main className="main-profil">
         <div className="my-profil">
-          <br />
+  
           <div className="conatainer_name_profilImg">
             <h1>
               Profil de <span>{userData.name} </span>
@@ -30,10 +32,14 @@ const UpdateProfil = () => {
               <img src={userData.imageUrl} alt="" />
             </div>
 
+            <div>
+            <input type="text" disabled className="injected_img_path desappear" />
+            </div>
+
             <Uploadimg />
           </div>
 
-          <form className="forContainer">
+          <form className="forContainer" onSubmit={handleSubmit}>
             <div className="nameInput-container">
               <label htmlFor="name">Nom</label>
               <input
@@ -59,10 +65,9 @@ const UpdateProfil = () => {
             <br />
 
             <div className="iconImgAndPost">
-
-            <button type="submit" className="">
-              <i className="fa-solid fa-paper-plane"></i>
-            </button>
+              <button type="submit" className="">
+                <i className="fa-solid fa-paper-plane"></i>
+              </button>
             </div>
           </form>
         </div>
