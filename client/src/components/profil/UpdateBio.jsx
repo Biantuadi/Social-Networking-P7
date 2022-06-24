@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Logo from "../Logo";
 import Nav from "../Nav";
-import Uploadimg from "./Uploadimg";
+import UpdateImg from "./UploadImg";
 import { useDispatch } from "react-redux";
 import { updateBio } from "../../actions/user.action";
-import { dateParser } from "../Utils";
+import { dateParser } from "../utils/Utils";
 
-const UpdateProfil = () => {
+const UpdateBio = () => {
   const [bio, setMessage] = React.useState("");
 
   const userData = useSelector((state) => state.userReducer);
@@ -16,22 +16,21 @@ const UpdateProfil = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const bioError = document.getElementById("bioError");
-    const btnSubmitBio = document.querySelector("#btn-submit-bio");
 
     if (bio.length === null || bio.length === 0)
       return (
-        (bioError.innerHTML = "Veuillez entrer votre bio"),
+        (bioError.innerHTML = "Veuillez entrer votre biographie"),
         (bioError.style.color = "red")
       );
 
     if (bio.length < 5)
       return (
-        (bioError.innerHTML = "Votre bio doit contenir au moins 5 caractères"),
+        (bioError.innerHTML = "Votre biographie doit contenir au moins 5 caractères"),
         (bioError.style.color = "red")
       );
 
     dispatch(updateBio(userData._id, bio));
-    window.location.reload();
+    window.location= "/home";
   };
 
   return (
@@ -61,7 +60,7 @@ const UpdateProfil = () => {
                 />
               </div>
 
-              <Uploadimg />
+              <UpdateImg />
               <br />
             </div>
 
@@ -78,7 +77,7 @@ const UpdateProfil = () => {
                   wrap="soft"
                   className="bio"
                   value={bio}
-                  placeholder="Votre bio"
+                  placeholder="Votre biographie"
                   onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
                 <span id="bioError" className="error"></span>
@@ -98,4 +97,4 @@ const UpdateProfil = () => {
   );
 };
 
-export default UpdateProfil;
+export default UpdateBio;
