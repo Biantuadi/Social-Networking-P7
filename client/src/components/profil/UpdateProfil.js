@@ -4,33 +4,33 @@ import Logo from "../Logo";
 import Nav from "../Nav";
 import Uploadimg from "./Uploadimg";
 import { useDispatch } from "react-redux";
-import { updateProfil } from "../../actions/user.action";
+import { updateBio } from "../../actions/user.action";
+import { dateParser } from "../Utils";
 
 const UpdateProfil = () => {
   const [bio, setMessage] = React.useState("");
-  const [name, setName] = React.useState("");
 
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const nameError = document.getElementById("nameError");
-    // const bioError = document.getElementById("bioError");
-    const btnSubmit = document.getElementById("btnSubmit");
+    const bioError = document.getElementById("bioError");
+    const btnSubmitBio = document.querySelector("#btn-submit-bio");
 
-    if (name === "") return (btnSubmit.disabled = true);
+    if (bio.length === null || bio.length === 0)
+      return (
+        (bioError.innerHTML = "Veuillez entrer votre bio"),
+        (bioError.style.color = "red")
+      );
 
-    if (bio === "") return (btnSubmit.disabled = true);
+    if (bio.length < 5)
+      return (
+        (bioError.innerHTML = "Votre bio doit contenir au moins 5 caractères"),
+        (bioError.style.color = "red")
+      );
 
-    if (name === "" && bio === "") return (btnSubmit.disabled = true);
-
-    if (name !== "" && bio === "") return (btnSubmit.disabled = true);
-
-    if (name === "" && bio !== "") return (btnSubmit.disabled = true);
-
-    btnSubmit.disabled = false;
-    dispatch(updateProfil(userData._id, name, bio));
+    dispatch(updateBio(userData._id, bio));
     window.location.reload();
   };
 
@@ -43,65 +43,55 @@ const UpdateProfil = () => {
 
       <main className="main-profil">
         <div className="my-profil">
-          <div className="conatainer_name_profilImg">
-            <h1>
-              Profil de <span>{userData.name} </span>
-            </h1>
-            <br />
-            <br />
+          <h1>
+            Profil de <span>{userData.name} </span>
+          </h1>
 
-            <div className="containerImg">
-              <img src={userData.imageUrl} alt="" />
+          <div className="displayBottom">
+            <div className="conatainer_name_profilImg">
+              <div className="containerImg">
+                <img src={userData.imageUrl} alt="" />
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  disabled
+                  className="injected_img_path desappear"
+                />
+              </div>
+
+              <Uploadimg />
+              <br />
             </div>
 
-            <div>
-              <input
-                type="text"
-                disabled
-                className="injected_img_path desappear"
-              />
-            </div>
+            <form className="forContainer" onSubmit={handleSubmit}>
+              <h3 className="time_of_inscription">
+                membre depuis le : <span>{dateParser(userData.createdAt)}</span>
+              </h3>
 
-            <Uploadimg />
+              <div className="bioInput-container">
+                <textarea
+                  name="text"
+                  rows="14"
+                  cols="10"
+                  wrap="soft"
+                  className="bio"
+                  value={bio}
+                  placeholder="Votre bio"
+                  onChange={(e) => setMessage(e.target.value)}
+                ></textarea>
+                <span id="bioError" className="error"></span>
+              </div>
+              <br />
+
+              <div className="iconImgAndPost">
+                <button type="submit" id="btn-submit-bio">
+                  <i className="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
           </div>
-
-          <form className="forContainer" onSubmit={handleSubmit}>
-            <div className="nameInput-container">
-              <label htmlFor="name">Nom</label>
-              <input
-                type="text"
-                id="name"
-                placeholder={userData.name}
-                className="name"
-                value={name}
-                // onChange={(e) => setMessage(e.target.value)}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <span id="nameError" className="error"></span>
-            </div>
-
-            <div className="bioInput-container">
-              <label htmlFor="bio">Biographie</label>
-              <textarea
-                name="text"
-                rows="14"
-                cols="10"
-                wrap="soft"
-                className="bio"
-                value={bio}
-                placeholder={userData.bio}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-              <span id="bioError" className="error"></span>
-            </div>
-            <br />
-
-            <div className="iconImgAndPost">
-              <button type="submit" className="" id="btnSubmit">
-                <i className="fa-solid fa-paper-plane"></i>
-              </button>
-            </div>
-          </form>
         </div>
       </main>
     </div>

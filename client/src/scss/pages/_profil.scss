@@ -3,9 +3,10 @@
     margin: auto;
     text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+
 
     h1 {
         span {
@@ -13,16 +14,22 @@
             color: rgb(225, 29, 72);
         }
     }
+    .displayBottom{
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 28px;
+    }
+
 
     .my-profil {
         background-color: #fff;
         border-radius: 15px;
         margin-top: 20px;
-        padding: 10px;
+        padding: 17px;
         width: 700px;
         margin-bottom: 30px;
-        display: flex;
-        justify-content: space-around;
 
     }
 
@@ -32,16 +39,17 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        margin-right: 60px;
 
         form.upload_img {
             display: flex;
             align-items: center;
             justify-content: space-around;
             flex-direction: column;
-            letter-spacing: 10px;
 
         }
-        .injected_img_path{
+
+        .injected_img_path {
             margin-top: 19px;
             width: 106%;
             height: 37px;
@@ -51,6 +59,7 @@
             font-size: 14px;
             color: #b5b5b5b5;
             background-color: #fff;
+
             &:focus {
                 outline: none;
             }
@@ -103,33 +112,18 @@
 
     }
 
-    .nameInput-container {
+    .forContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        margin-top: 50px;
+    }
 
-        label {
-            font-size: 17px;
-            color: #000;
+    h3.time_of_inscription {
+        color: gray;
+
+        span {
             font-weight: bold;
-            text-align: start;
-            margin-left: -192px;
-        }
-
-        input.name {
-            width: 90%;
-            height: 40px;
-            border: 1px solid rgba(166, 166, 166, 0.955);
-            border-radius: 5px;
-            padding: 5px;
-            font-size: 19px;
-            margin-top: 10px;
-
-            &:focus {
-                outline: none;
-            }
+            color: #000;
         }
     }
 
@@ -141,13 +135,6 @@
         align-items: center;
         margin-top: 35px;
 
-        label {
-            margin-left: -145px;
-            font-size: 17px;
-            color: #000;
-            font-weight: bold;
-            text-align: start;
-        }
 
         .bio {
             width: 90%;
@@ -156,7 +143,7 @@
             border-radius: 5px;
             margin-top: 10px;
             padding: 5px;
-            font-size: 19px;
+            font-size: 15px;
 
             &:focus {
                 outline: none;

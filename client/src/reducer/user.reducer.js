@@ -1,6 +1,6 @@
 import { GET_USER } from "../actions/user.action";
 // import { UPLOAD_PROFIL } from "../actions/user.action";
-import { UPDATE_PROFIL } from "../actions/user.action";
+import { UPDATE_BIO } from "../actions/user.action";
 
 const initialState = {};
 
@@ -13,10 +13,9 @@ export default function userReducer(state = initialState, action) {
     //     ...state,
     //     imageUrl: action.payload
     //   }
-    case UPDATE_PROFIL:
+    case UPDATE_BIO:
         return{
             ...state,
-            name: action.payload,
             bio: action.payload
         }
     default:

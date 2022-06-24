@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GET_USER = "GET_USER";
 // export const UPLOAD_PROFIL = "UPLOAD_PROFIL";
-export const UPDATE_PROFIL = "UPDATE_PROFIL";
+export const UPDATE_BIO = "UPDATE_BIO"; 
 
 export const getUser = (uid) => {
   return (dispatch) => {
@@ -20,14 +20,14 @@ export const getUser = (uid) => {
 
 // export const uploadProfil = (uid, imageUrl) => {};
 
-export const updateProfil = (userId, name, bio) => {
+export const updateBio = (userId, bio) => {
   return (dispatch) => {
     axios
-      .put(`http://localhost:3000/api/user/${userId}`, { name, bio })
+      .put(`http://localhost:3000/api/user/${userId}`, {  bio })
       .then((res) => {
         dispatch({
-          type: UPDATE_PROFIL,
-          payload: { name, bio },
+          type: UPDATE_BIO,
+          payload: {  bio },
         })
       })
       .catch((err) => console.log(err));
