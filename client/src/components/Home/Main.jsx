@@ -1,7 +1,7 @@
 import React from "react";
 import Article from "./Article";
 import AsideUsers from "./AllUsers.Aside";
-import AllPosts from "./Post.Middle";
+import AllPosts from "./File.Actualite";
 
 const Main = () => {
   return (
