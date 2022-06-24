@@ -66,12 +66,6 @@ exports.logout = (req, res, next) => {
 
 //? `\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-exports.deleteUser = (req, res, next) => {
-  User.findByIdAndDelete(req.params.id)
-    .then((user) => res.status(200).json(user))
-    .catch((err) => res.status(500).json({ error: err }));
-};
-
 exports.updateUser = (req, res, next) => {
   User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
     .then(() => res.status(200).json({ message: " utulisateur modifié !" }))
@@ -89,5 +83,5 @@ exports.getAllUsers = (req, res, next) => {
   User.find()
     .select("-password")
     .then((users) => res.status(200).json(users))
-    .catch((err) => res.status(500).json({ error: err })); 
+    .catch((err) => res.status(500).json({ error: err }));
 };

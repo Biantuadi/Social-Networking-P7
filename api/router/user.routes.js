@@ -11,9 +11,8 @@ router.get("/logout", userCtrl.logout);
 
  
 //  
-router.get("/", userCtrl.getAllUsers); //! admin only
+router.get("/", userCtrl.getAllUsers); 
 router.get("/:id", userCtrl.getUser);
-router.put("/:id", userCtrl.updateUser); 
-router.delete("/:id", userCtrl.deleteUser); //! admin only
+router.put("/:id", userCtrl.updateUser);
 
 module.exports = router;

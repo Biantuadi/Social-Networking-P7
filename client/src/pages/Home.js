@@ -2,15 +2,19 @@ import React from "react";
 import Auth from "../components/log/Auth";
 import { UidContext } from "../components/AppContex";
 import { useSelector } from "react-redux";
+
+// component for the home page
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import imgTest from "../img/test.jpg";
-// import axios from "axios";
+import {dateParser} from "../components/Utils";
+
 
 const Home = () => {
   const uid = React.useContext(UidContext);
 
-  const userData = useSelector((state) => state.userReducer)
+  const userData = useSelector((state) => state.userReducer);
+  const usersData = useSelector((state) => state.usersReducer);
 
   // const handlePost = () => {
   //   axios({
@@ -50,9 +54,26 @@ const Home = () => {
           <div className="section_container">
             <article className="articleHome">
               <div className="divContainer">
-                <h1>Biographie</h1>
-                <br />
+                <h2 className="name">{userData.name}</h2>
+
+                <div className="container_img_profil">
+                  <img src={userData.imageUrl} alt="" />
+                </div>
+
+                <div className="renseignement">
+                <h3 className="bio">Biographie</h3>
                 <p>{userData.bio} </p>
+                <br />
+
+                <h3 className="email">email</h3>
+                <p>{userData.email}</p>
+                <br />
+
+                <h3 className="inscription">Inscription</h3>
+                <p>{dateParser(userData.createdAt)}</p>
+                <br />
+                </div>
+
               </div>
             </article>
 
@@ -138,32 +159,16 @@ const Home = () => {
               <div className="divContainer">
                 <h2>Utulisateurs</h2>
                 <br />
-                
-                <ul className="eachUser">
-                  <li className="user">
-                    <img src={imgTest} alt="" />
-                    <span className="name">Beni</span>
-                    
-                  </li>
 
-                  <li className="user">
-                    <img src={imgTest} alt="" />
-                    <span className="name">Beni</span>
-                    
-                  </li>
-                </ul>
                 <ul className="eachUser">
-                  <li className="user">
-                    <img src={imgTest} alt="" />
-                    <span className="name">Beni</span>
-                    
-                  </li>
-
-                  <li className="user">
-                    <img src={imgTest} alt="" />
-                    <span className="name">Beni</span>
-                    
-                  </li>
+                  {usersData.map((user) => {
+                    return (
+                      <li className="user" key={user.id}>
+                        <img src={user.imageUrl} alt="" />
+                        <span className="name">{user.name}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </aside>

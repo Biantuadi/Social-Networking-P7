@@ -1,9 +1,54 @@
 .main_container {
     height: 100%;
-    .section_container{
+
+    .section_container {
         display: flex;
         justify-content: space-around;
     }
+
+    .articleHome {
+        flex: 0.5;
+
+        h2,h3{
+            text-transform: capitalize;
+            // margin-bottom: 15px;
+        }
+        h2.name{
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgba(190, 18, 60, 1);
+        }
+        h3{
+            font-size: 19px;
+            padding-bottom: 3px;
+        }
+        .renseignement{
+            // background-color: red;
+            width: 75%;
+            margin: auto;
+        }
+
+        .divContainer {
+            width: 98%;
+            margin: 10px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .container_img_profil {
+            color: #000;
+            text-align: center;
+
+            img {
+                width: 196px;
+                height: 200px;
+                border-radius: 50%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
 
     main.mainContainer__post {
         text-align: center;
@@ -30,7 +75,7 @@
         }
     }
 
-    
+
 
     .friend_Post_No_Img {
         border-radius: 15px;
@@ -40,7 +85,7 @@
         color: #000;
         font-size: 17px;
         width: 70%;
-        margin:10px auto;
+        margin: 10px auto;
 
         .container_name_img_time_update {
             display: flex;
@@ -118,52 +163,60 @@
             color: rgb(225, 29, 72);
         }
     }
-    .articleHome{
+
+
+
+    .asideHome {
         flex: 0.5;
-        .divContainer{
-            width: 98%;
-            margin:10px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-        }
-    }
-    .asideHome{ 
-        flex: 0.5;
-        h2{
+
+        h2 {
             color: rgb(225, 29, 72);
             font-weight: bold;
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        .divContainer{
+
+        .divContainer {
             width: 98%;
-            margin:10px auto;
+            margin: 10px auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 15px;
+            text-align: center;
         }
-        .eachUser{
+
+        .eachUser {
             margin-bottom: 20px;
             display: flex;
-            // flex-wrap: wrap;
             width: 100%;
+            flex-wrap: wrap;
+            align-content: center;
         }
-        .user{
+
+        .user {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: auto;
+            margin: 10px;
             width: 40%;
             margin-bottom: 20px;
-            img{
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+
+            img {
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
                 border: 2px solid rgb(225, 29, 72);
                 text-align: center;
+                padding: 1px;
             }
-            .name{
+
+            .name {
                 // margin-top: 5px;
                 font-size: 17px;
                 color: #000;

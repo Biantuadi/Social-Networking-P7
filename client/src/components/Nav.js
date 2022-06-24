@@ -6,7 +6,7 @@ const Nav = () => {
 
     return (
         <nav className='iconsNav'>
-            <NavLink to='/new-post' className='new-post'>
+            <NavLink to='/my-post' className='new-post'>
             <button className='nouvelle__publication'>Nouvelle publication</button>
             </NavLink>
                 

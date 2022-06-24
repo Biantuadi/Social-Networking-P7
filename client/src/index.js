@@ -9,12 +9,15 @@ import rootReducer from "./reducer/index.reducer";
 
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
-import logger from "redux-logger";
+import { getUsers } from "./actions/users.action";
+// import logger from "redux-logger";
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+store.dispatch(getUsers());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
