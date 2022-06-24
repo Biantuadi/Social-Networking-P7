@@ -1,0 +1,24 @@
+.loader__spinner__ball-container div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 60px;
+    left: 20px;
+  }
+  .loader__spinner__ball-container div:nth-child(1) {
+    background: #9356DC;
+    animation: loader__spinner__ball-container .9s linear infinite;
+    animation-delay: -0.5s;
+  }
+  .loader__spinner__ball-container div:nth-child(2) {
+    background: #FF79DA;
+    animation: loader__spinner__ball-container .9s linear infinite;
+    animation-delay: 0s;
+  }
+  .loader__spinner__ball-container div:nth-child(3) {
+    background: #9356DC;
+    animation: loader__spinner__ball-container-o .9s linear infinite;
+    animation-delay: -0.5s;
+  }
+  

@@ -29,6 +29,10 @@ const App = () => {
     if (uid) {
       dispatch(getUser(uid));
     }
+    window.addEventListener("load", () => {
+      let loader = document.querySelector(".loader");
+      loader.style.display = "none";
+    });
   }, [uid]);
 
   return (
