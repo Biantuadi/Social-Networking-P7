@@ -8,22 +8,24 @@ const LoginModal = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
 
     axios({
       method: "POST",
       url: `http://localhost:3000/api/user/login`,
-      withCredentials: true,
+
       data: {
         email: email,
         password: password,
       },
     })
       .then((res) => {
-        // if (res.data.success) {
-          window.location = "/";
+        const userId = res.data.userId;
+        const tonken = res.data.token;
+        localStorage.setItem("jwt", tonken);
+        localStorage.setItem("uid", userId);
+        window.location = "/";
         // }
       })
       .catch((err) => {
@@ -31,9 +33,9 @@ const LoginModal = () => {
           emailError.innerHTML = err.response.data.email;
           passwordError.innerHTML = "";
         } else if (err.response.data.password) {
-            emailError.innerHTML = "";
+          emailError.innerHTML = "";
           passwordError.innerHTML = err.response.data.password;
-        }  
+        }
       });
   };
 

@@ -2,9 +2,17 @@ import axios from 'axios';
 
 export const GET_USERS = 'GET_USERS';
 
-export const getUsers = () =>{
+const apiUrl = "http://localhost:3000/api/user";
+const authAxios = axios.create({
+  baseURL: apiUrl,
+  headers:{
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`
+  }
+})
+
+export const getUsers = ( ) =>{
     return(dispatch) =>{
-        axios.get('http://localhost:3000/api/user')
+        authAxios.get('http://localhost:3000/api/user')
         .then(response => {
             dispatch({
                 type: GET_USERS,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Routes from "./router/";
 import { UidContext } from "./components/AppContex";
-import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./actions/user.action";
@@ -11,24 +10,10 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      await axios({
-        method: "GET",
-        url: `http://localhost:3000/jwtid`,
-        withCredentials: true,
-      })
-        .then((res) => {
-          setUid(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    fetchData();
+    setUid(localStorage.getItem("uid"));
+    dispatch(getUser(localStorage.getItem("uid")));
+    
 
-    if (uid) {
-      dispatch(getUser(uid));
-    }
     window.addEventListener("load", () => {
       let loader = document.querySelector(".loader");
       loader.style.display = "none";

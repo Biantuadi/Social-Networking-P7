@@ -12,35 +12,42 @@ const SignupModal = () => {
     const nameError = document.querySelector(".name.error");
     const emailError = document.querySelector(".email.error");
 
-
     axios({
       method: "POST",
       url: `http://localhost:3000/api/user/signup`,
-      withCredentials: true,
+
       data: {
         name: name,
         email: email,
         password: password,
       },
     })
-      .then((res) => {
+      .then(() => {
         axios({
           method: "POST",
           url: `http://localhost:3000/api/user/login`,
-          withCredentials: true,
+
           data: {
             email: email,
             password: password,
-          }
+          },
         })
-          .then((res) => { window.location = "/"; })
-          .catch((err) => { console.log(err); });
-      }) 
+          .then((res) => {
+            const userId = res.data.userId;
+            const tonken = res.data.token;
+            localStorage.setItem("jwt", tonken);
+            localStorage.setItem("uid", userId);
+            window.location = "/";
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
       .catch((err) => {
         if (err.response.data.name) {
           nameError.innerHTML = err.response.data.name;
           emailError.innerHTML = "";
-        } else if (err.response.data.email) { 
+        } else if (err.response.data.email) {
           nameError.innerHTML = "";
           emailError.innerHTML = err.response.data.email;
         }
@@ -48,7 +55,6 @@ const SignupModal = () => {
   };
 
   return (
-    
     <div>
       <h1>Sign up</h1>
       <br />

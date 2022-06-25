@@ -42,15 +42,9 @@ exports.login = (req, res, next) => {
               .status(401)
               .json({ password: "Mot de passe incorrect !" });
           }
-          res.cookie(
-            "token",
-            jwt.sign({ userId: user._id }, process.env.JWT_KEY, {
-              expiresIn: "24h",
-            }),
-            { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }
-          );
           res.status(200).json({
             userId: user._id,
+            token: jwt.sign({ userId: user._id }, process.env.JWT_KEY),
           });
         })
         .catch((err) => res.status(500).json({ error: err }));
@@ -59,9 +53,15 @@ exports.login = (req, res, next) => {
 };
 
 exports.logout = (req, res, next) => {
-  res.clearCookie("token", "", { maxAge: 1 });
-  res.status(200).json({ message: "Vous êtes déconnecté" });
-  // res.redirect("/");
+  const removeToken = localStorage.removeItem("token");
+  const removeUserId = localStorage.removeItem("userId");
+  if (removeToken && removeUserId) {
+    res.status(200).json({ message: "Déconnexion réussie !" });
+  } else {
+    res.status(401).json({ message: "Vous n'êtes pas connecté !" });
+  }
+
+
 };
 
 //? `\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

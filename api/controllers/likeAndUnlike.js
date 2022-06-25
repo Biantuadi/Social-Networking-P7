@@ -1,6 +1,6 @@
 const Post = require("../models/posts.model");
 
-exports.likeDislike = (req, res, next) => {
+exports.likePost = (req, res, next) => {
   Post.findOne({ _id: req.params.id })
     .then((sauce) => {
       if (!sauce.usersLiked.includes(req.body.userId) && req.body.like === 1) {

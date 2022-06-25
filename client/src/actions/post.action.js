@@ -4,12 +4,20 @@ import axios from "axios";
 
 export const GET_POSTS = "GET_POSTS";
 export const LIKE_POST = "LIKE_POST";
-export const UNLIKE_POST = "UNLIKE_POST";
+// export const UNLIKE_POST = "UNLIKE_POST";
+
+const apiUrl = "http://localhost:3000/api/post";
+const authAxios = axios.create({
+  baseURL: apiUrl,
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+  },
+});
 
 export const getPost = () => {
   return (dispatch) => {
-    axios
-      .get("http://localhost:3000/api/post")
+    authAxios
+      .get(apiUrl)
       .then((res) => {
         dispatch({
           type: GET_POSTS,
@@ -20,6 +28,30 @@ export const getPost = () => {
   };
 };
 
-export const likePost = (postId, userId) => {}
+export const likePost = (postId, userId) => {
+  return (dispatch) => {
+    authAxios
+      .post(`${apiUrl}/post/like-post/${postId}`, { userId })
+      .then((res) => {
+        dispatch({
+          type: LIKE_POST,
+          payload: { postId, userId },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
-export const unlikePost = (id) => {}
+// export const unlikePost = (id) => {
+//   return (dispatch) => {
+//     authAxios
+//       .put(`http://localhost:3000/api/post/unlike-post/${id}`)
+//       .then((res) => {
+//         dispatch({
+//           type: UNLIKE_POST,
+
+//         });
+//       })
+//       .catch((err) => console.log(err));
+//   };
+// }

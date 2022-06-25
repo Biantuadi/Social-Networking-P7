@@ -1,12 +1,19 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER";
-// export const UPLOAD_PROFIL = "UPLOAD_PROFIL";
-export const UPDATE_BIO = "UPDATE_BIO"; 
+export const UPDATE_BIO = "UPDATE_BIO";
+
+const apiUrl = "http://localhost:3000/api/user";
+const authAxios = axios.create({
+  baseURL: apiUrl,
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+  },
+});
 
 export const getUser = (uid) => {
   return (dispatch) => {
-    axios
+    authAxios
       .get(`http://localhost:3000/api/user/${uid}`)
       .then((res) => {
         dispatch({
@@ -18,16 +25,15 @@ export const getUser = (uid) => {
   };
 };
 
-
 export const updateBio = (userId, bio) => {
   return (dispatch) => {
-    axios
-      .put(`http://localhost:3000/api/user/${userId}`, {  bio })
+    authAxios
+      .put(`http://localhost:3000/api/user/${userId}`, { bio })
       .then((res) => {
         dispatch({
           type: UPDATE_BIO,
-          payload: {  bio },
-        })
+          payload: { bio },
+        });
       })
       .catch((err) => console.log(err));
   };
