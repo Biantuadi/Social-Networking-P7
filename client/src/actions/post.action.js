@@ -31,7 +31,7 @@ export const getPost = () => {
 export const likePost = (postId, userId) => {
   return (dispatch) => {
     authAxios
-      .post(`${apiUrl}/post/like-post/${postId}`, { userId })
+      .put(`${apiUrl}/like-post/${postId}`, { userId })
       .then((res) => {
         dispatch({
           type: LIKE_POST,

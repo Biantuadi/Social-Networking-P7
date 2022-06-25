@@ -13,7 +13,7 @@ export default function postReducer(state = initialState, action) {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            userLiked : action.payload.userId,
+            usersLiked : action.payload.userId,
           };
         }
         return null;

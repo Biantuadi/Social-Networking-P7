@@ -4,15 +4,31 @@ import { useEffect } from "react";
 import { UidContext } from "../AppContex";
 import { useDispatch } from "react-redux";
 import { likePost } from "../../actions/post.action";
+import axios from "axios";
 
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = React.useState(false);
   const uid = useContext(UidContext);
   const dispatch = useDispatch();
 
+  const apiUrl = "http://localhost:3000/api/post";
+  const authAxios = axios.create({
+    baseURL: apiUrl,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  });
+
   const like = () => {
     // dispatch(likePost(post._id, uid));
     // setLiked(true);
+    // authAxios
+    //   .put(`${apiUrl}/like-post/${post._id}`, { uid })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setLiked(true);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const unlike = () => {};
