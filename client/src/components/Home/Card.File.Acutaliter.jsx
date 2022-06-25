@@ -45,19 +45,25 @@ const CardAcutaliter = ({ post }) => {
                       }
                     })}
                 </h4>
-                <span>{shortDateParser(post.updatedAt)}</span>
+                <span>{shortDateParser(post.createdAt)}</span>
               </div>
             </div>
           </div>
 
           <div className="viewPost">
             <p>{post.message}</p>
-            <img src={post.picture} alt="" />
+            {post.picture && <img src={post.picture} alt="post_image" />}
           </div>
 
-          <div className="iconImgAndPost">
-            <i className="fa-regular fa-heart"></i>
-            <i className="fa-regular fa-comment"></i>
+          <div className="iconImgAndPost like_comment">
+            <div className="like">
+              <span>{post.likes.length}</span>
+              <i className="fa-regular fa-heart"></i>
+            </div>
+            <div className="comment">
+              <span>{post.likes.length}</span>
+              <i className="fa-regular fa-comment"></i>
+            </div>
           </div>
         </>
       )}

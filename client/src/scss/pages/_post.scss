@@ -22,6 +22,7 @@
         border-radius: 50%;
         border: 2px solid rgb(225, 29, 72);
     }
+
     .img-name-time {
         display: flex;
         align-items: center;
@@ -51,11 +52,11 @@
 
     .viewPost {
         display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 90%;
-    text-align: start;
-    font-size: 18px;
+        flex-direction: column;
+        margin: auto;
+        width: 90%;
+        text-align: start;
+        font-size: 18px;
 
         img {
             width: 100%;
@@ -66,6 +67,16 @@
             background-position: center;
             background-repeat: no-repeat;
             margin-top: 8px;
+        }
+    }
+
+    .like_comment {
+        .like, .comment {
+            display: flex;
+        }
+        span {
+            margin-right: 7px;
+            margin-top: 10px;
         }
     }
 
