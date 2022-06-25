@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { shortDateParser, isEmpty } from "../utils/Utils";
+import LikeButton from "./Like.Button";
 
 import imgTest from "../../img/test.jpg";
 
@@ -58,7 +59,7 @@ const CardAcutaliter = ({ post }) => {
           <div className="iconImgAndPost like_comment">
             <div className="like">
               <span>{post.likes.length}</span>
-              <i className="fa-regular fa-heart"></i>
+              <LikeButton post={post} />
             </div>
             <div className="comment">
               <span>{post.likes.length}</span>
