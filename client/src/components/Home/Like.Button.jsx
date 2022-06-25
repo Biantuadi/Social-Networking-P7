@@ -4,47 +4,42 @@ import { useEffect } from "react";
 import { UidContext } from "../AppContex";
 import { useDispatch } from "react-redux";
 import { likePost } from "../../actions/post.action";
-import axios from "axios";
+import { useSelector } from "react-redux";
 
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = React.useState(false);
-  const uid = useContext(UidContext);
+  const userId = useContext(UidContext);
   const dispatch = useDispatch();
-
-  const apiUrl = "http://localhost:3000/api/post";
-  const authAxios = axios.create({
-    baseURL: apiUrl,
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  });
+  // const usersData = useSelector((state) => state.usersReducer);
+  // const posts = useSelector((state) => state.postReducer);
 
   const like = () => {
-    // dispatch(likePost(post._id, uid));
-    // setLiked(true);
-    // authAxios
-    //   .put(`${apiUrl}/like-post/${post._id}`, { uid })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setLiked(true);
-    //   })
-    //   .catch((err) => console.log(err));
+    dispatch(likePost(post._id, userId));
+    setLiked(true);
   };
 
   const unlike = () => {};
 
   useEffect(() => {
-    if (post.usersLiked.includes(uid)) return setLiked(true);
-  }, [uid, liked, post.Likers]);
+    if (post.usersLiked.includes(userId)) return setLiked(true);
+  }, [userId, liked, post.Likers]);
 
   return (
     <>
       {liked === false && (
-        <i className="fa-regular fa-heart" onClick={like} key={post.userId}></i>
+        <>
+          <span>{post.likes}</span>
+
+          <i className="fa-regular fa-heart" onClick={like}></i>
+        </>
       )}
 
       {liked === true && (
-        <i className="fa-solid fa-heart" onClick={unlike} key={post.userId}></i>
+        <>
+          <span id="incLike">{post.likes}</span>
+
+          <i className="fa-solid fa-heart" onClick={unlike}></i>
+        </>
       )}
     </>
   );

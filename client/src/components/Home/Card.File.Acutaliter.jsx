@@ -33,11 +33,11 @@ const CardAcutaliter = ({ post }) => {
                     .join("")
                 }
                 alt="avatar"
-                key={post.name + "avatar"}
+                
               />
 
               <div className="postContainer__header__name">
-                <h4 key={post.name}>
+                <h4 >
                   {!isEmpty(usersData[0]) &&
                     usersData.map((user) => {
                       if (user._id === post.posterId) {
@@ -46,7 +46,7 @@ const CardAcutaliter = ({ post }) => {
                       return "";
                     })}
                 </h4>
-                <span key={post.name + "timer_post_created"}>
+                <span>
                   {shortDateParser(post.createdAt)}
                 </span>
               </div>
@@ -54,19 +54,19 @@ const CardAcutaliter = ({ post }) => {
           </div>
 
           <div className="viewPost">
-            <p key={post.message}>{post.message}</p>
+            <p >{post.message}</p>
             {post.picture && (
-              <img src={post.picture} alt="post_image" key={post.picture} />
+              <img src={post.picture} alt="post_image" />
             )}
           </div>
 
           <div className="iconImgAndPost like_comment">
             <div className="like">
-              <span key={post.likes}>{post.likes.length}</span>
               <LikeButton post={post} />
             </div>
+
             <div className="comment">
-              <span key={post.comments}>{post.comments.length}</span>
+              <span>{post.comments.length}</span>
               <i className="fa-regular fa-comment"></i>
             </div>
           </div>

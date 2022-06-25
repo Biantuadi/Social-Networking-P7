@@ -8,7 +8,7 @@ exports.likePost = (req, res, next) => {
       Post.updateOne(
         { _id: req.params.id },
         {
-          $inc: { likes: +1 },
+          $inc: { likes: req.body.like++ },
           $push: { usersLiked: req.body.userId },
         }
       )
