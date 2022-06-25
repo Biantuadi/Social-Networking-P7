@@ -25,12 +25,13 @@ const UpdateBio = () => {
 
     if (bio.length < 5)
       return (
-        (bioError.innerHTML = "Votre biographie doit contenir au moins 5 caractères"),
+        (bioError.innerHTML =
+          "Votre biographie doit contenir au moins 5 caractères"),
         (bioError.style.color = "red")
       );
 
     dispatch(updateBio(userData._id, bio));
-    window.location= "/home";
+    window.location = "/home";
   };
 
   return (
@@ -49,7 +50,7 @@ const UpdateBio = () => {
           <div className="displayBottom">
             <div className="conatainer_name_profilImg">
               <div className="containerImg">
-                <img src={userData.imageUrl} alt="" />
+                <img src={userData.avatar} alt="" />
               </div>
 
               <div>

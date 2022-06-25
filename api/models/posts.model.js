@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema(
   {
     posterId: { type: String, required: true },
     message: { type: String, required: true },
-    picture: { type: String },
+    imageUrl: { type: String },
     likes: { type: Array },
     comments: { type: Array },
     usersLiked: { type: Array },

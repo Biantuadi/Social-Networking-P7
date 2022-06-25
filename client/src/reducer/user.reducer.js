@@ -11,13 +11,13 @@ export default function userReducer(state = initialState, action) {
     // case UPLOAD_PROFIL:
     //   return{
     //     ...state,
-    //     imageUrl: action.payload
+    //     avatar: action.payload
     //   }
     case UPDATE_BIO:
-        return{
-            ...state,
-            bio: action.payload
-        }
+      return {
+        ...state,
+        bio: action.payload,
+      };
     default:
       return state;
   }

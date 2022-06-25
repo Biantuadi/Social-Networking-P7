@@ -1,13 +1,11 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+const AllUsers = () => {
+  const usersData = useSelector((state) => state.usersReducer);
 
-const AllUsers = () => { 
-    const usersData = useSelector((state) => state.usersReducer);
-
-
-    return (
-      <aside className="asideHome">
+  return (
+    <aside className="asideHome">
       <div className="divContainer">
         <h2>Utulisateurs</h2>
         <br />
@@ -16,7 +14,7 @@ const AllUsers = () => {
           {usersData.map((user) => {
             return (
               <li className="user" key={user.id}>
-                <img src={user.imageUrl} alt="" />
+                <img src={user.avatar} alt="" />
                 <span className="name">{user.name}</span>
               </li>
             );
@@ -24,7 +22,7 @@ const AllUsers = () => {
         </ul>
       </div>
     </aside>
-    );
+  );
 };
 
 export default AllUsers;

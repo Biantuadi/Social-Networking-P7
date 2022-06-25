@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { dateParser } from "../utils/Utils";
 
-
 const Article = () => {
-    const userData = useSelector((state) => state.userReducer);
+  const userData = useSelector((state) => state.userReducer);
 
   return (
     <article className="articleHome">
@@ -12,7 +11,7 @@ const Article = () => {
         <h2 className="name">{userData.name}</h2>
 
         <div className="container_img_profil">
-          <img src={userData.imageUrl} alt="" />
+          <img src={userData.avatar} alt="" />
         </div>
 
         <div className="renseignement">

@@ -18,7 +18,6 @@ export const getUser = (uid) => {
   };
 };
 
-// export const uploadProfil = (uid, imageUrl) => {};
 
 export const updateBio = (userId, bio) => {
   return (dispatch) => {
