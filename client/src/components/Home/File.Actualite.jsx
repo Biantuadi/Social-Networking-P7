@@ -23,7 +23,7 @@ const Post = () => {
       <main className="mainContainer__post">
         {!isEmpty(posts[0]) &&
           posts.map((post) => {
-            return <Card post={post} />;
+            return <Card post={post} key={post._id} />;
           })}
         <br />
       </main>

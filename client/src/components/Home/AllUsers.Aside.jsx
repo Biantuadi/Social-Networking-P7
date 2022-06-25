@@ -13,9 +13,9 @@ const AllUsers = () => {
         <ul className="eachUser">
           {usersData.map((user) => {
             return (
-              <li className="user" key={user.id}>
-                <img src={user.avatar} alt="" />
-                <span className="name">{user.name}</span>
+              <li className="user" key={user._id}>
+                <img src={user.avatar} alt="" key={user.name}/>
+                <span className="name" key={user.avatar}>{user.name}</span>
               </li>
             );
           })}

@@ -8,23 +8,23 @@ const Article = () => {
   return (
     <article className="articleHome">
       <div className="divContainer">
-        <h2 className="name">{userData.name}</h2>
+        <h2 className="name" key={userData.name}>{userData.name}</h2>
 
         <div className="container_img_profil">
-          <img src={userData.avatar} alt="" />
+          <img src={userData.avatar} alt="" key={userData.avatar}/>
         </div>
 
         <div className="renseignement">
           <h3 className="bio">Biographie</h3>
-          <p>{userData.bio} </p>
+          <p key={userData.bio}>{userData.bio} </p>
           <br />
 
           <h3 className="email">email</h3>
-          <p>{userData.email}</p>
+          <p key={userData.email}>{userData.email}</p>
           <br />
 
           <h3 className="inscription">Inscription</h3>
-          <p>{dateParser(userData.createdAt)}</p>
+          <p key={userData.createdAt}>{dateParser(userData.createdAt)}</p>
           <br />
         </div>
       </div>

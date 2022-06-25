@@ -4,12 +4,9 @@ import { useSelector } from "react-redux";
 import { shortDateParser, isEmpty } from "../utils/Utils";
 import LikeButton from "./Like.Button";
 
-import imgTest from "../../img/test.jpg";
-
 const CardAcutaliter = ({ post }) => {
   const [loadPost, setLoadPost] = React.useState(true);
   const usersData = useSelector((state) => state.usersReducer);
-  const userData = useSelector((state) => state.userReducer);
 
   useEffect(() => {
     !isEmpty(usersData[0]) && setLoadPost(false);
@@ -31,38 +28,45 @@ const CardAcutaliter = ({ post }) => {
                       if (user._id === post.posterId) {
                         return user.avatar;
                       }
+                      return null;
                     })
                     .join("")
                 }
                 alt="avatar"
+                key={post.name + "avatar"}
               />
 
               <div className="postContainer__header__name">
-                <h4>
+                <h4 key={post.name}>
                   {!isEmpty(usersData[0]) &&
                     usersData.map((user) => {
                       if (user._id === post.posterId) {
                         return user.name;
                       }
+                      return "";
                     })}
                 </h4>
-                <span>{shortDateParser(post.createdAt)}</span>
+                <span key={post.name + "timer_post_created"}>
+                  {shortDateParser(post.createdAt)}
+                </span>
               </div>
             </div>
           </div>
 
           <div className="viewPost">
-            <p>{post.message}</p>
-            {post.picture && <img src={post.picture} alt="post_image" />}
+            <p key={post.message}>{post.message}</p>
+            {post.picture && (
+              <img src={post.picture} alt="post_image" key={post.picture} />
+            )}
           </div>
 
           <div className="iconImgAndPost like_comment">
             <div className="like">
-              <span>{post.likes.length}</span>
+              <span key={post.likes}>{post.likes.length}</span>
               <LikeButton post={post} />
             </div>
             <div className="comment">
-              <span>{post.likes.length}</span>
+              <span key={post.comments}>{post.comments.length}</span>
               <i className="fa-regular fa-comment"></i>
             </div>
           </div>
