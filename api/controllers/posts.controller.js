@@ -12,9 +12,12 @@ exports.createPost = async (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-exports.updatePost = async (req, res) => {
-  Post.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-    .then((post) => res.json(post))
+exports.updatePost = (req, res) => {
+  let post = req.body;
+  Post.findByIdAndUpdate(req.params.id, { ...post }, { new: true })
+    .then((post) => {
+      res.json(post);
+    })
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
@@ -89,4 +92,3 @@ exports.commentPost = async (req, res) => {
     .then((post) => res.json(post))
     .catch((err) => res.status(400).json("Error: " + err));
 };
-

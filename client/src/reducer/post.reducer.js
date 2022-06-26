@@ -1,5 +1,8 @@
 import { GET_POSTS } from "../actions/post.action";
 import { LIKE_POST } from "../actions/post.action";
+import { UNLIKE_POST } from "../actions/post.action";
+import { UPDATE_POST } from "../actions/post.action";
+import { DELETE_POST } from "../actions/post.action";
 
 const initialState = {};
 
@@ -13,12 +16,38 @@ export default function postReducer(state = initialState, action) {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            usersLiked: action.payload.userId,
-            ...post.usersLiked,
+            usersLiked: [action.payload.userId, ...post.usersLiked],
           };
         }
         return post;
       });
+
+    case UNLIKE_POST:
+      return state.map((post) => {
+        if (post._id === action.payload.postId) {
+          return {
+            ...post,
+            usersLiked: post.usersLiked.filter( (id) => id !== action.payload.userId),
+            
+          };
+        }
+        return post;
+      });
+
+    case UPDATE_POST:
+      return state.map((post) => {
+        if (post._id === action.payload.postId) {
+          return {
+            ...post,
+            message: action.payload.message,
+          };
+        }
+        return post;
+      });
+
+    case DELETE_POST:
+      return state.filter((post) => post._id !== action.payload);
+
     default:
       return state;
   }

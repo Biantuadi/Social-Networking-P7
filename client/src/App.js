@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Routes from "./router/";
 import { UidContext } from "./components/AppContex";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.action";
 
 const App = () => {
@@ -12,13 +12,12 @@ const App = () => {
   useEffect(() => {
     setUid(localStorage.getItem("uid"));
     dispatch(getUser(localStorage.getItem("uid")));
-    
 
     window.addEventListener("load", () => {
       let loader = document.querySelector(".loader");
       loader.style.display = "none";
     });
-  }, [uid]);
+  }, [uid, dispatch]);
 
   return (
     <UidContext.Provider value={uid}>

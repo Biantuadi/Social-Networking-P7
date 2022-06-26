@@ -4,7 +4,9 @@ import axios from "axios";
 
 export const GET_POSTS = "GET_POSTS";
 export const LIKE_POST = "LIKE_POST";
-// export const UNLIKE_POST = "UNLIKE_POST";
+export const UNLIKE_POST = "UNLIKE_POST";
+export const UPDATE_POST = "UPDATE_POST";
+export const DELETE_POST = "DELETE_POST";
 
 const apiUrl = "http://localhost:3000/api/post";
 const authAxios = axios.create({
@@ -30,8 +32,8 @@ export const getPost = () => {
 
 export const likePost = (postId, userId) => {
   return (dispatch) => {
-      authAxios
-      .put(`${apiUrl}/like-post/${postId}`, { userId, like : 1 })
+    authAxios
+      .put(`${apiUrl}/like-post/${postId}`, { userId, like: 1 })
       .then((res) => {
         dispatch({
           type: LIKE_POST,
@@ -42,16 +44,44 @@ export const likePost = (postId, userId) => {
   };
 };
 
-// export const unlikePost = (id) => {
-//   return (dispatch) => {
-//     authAxios
-//       .put(`http://localhost:3000/api/post/unlike-post/${id}`)
-//       .then((res) => {
-//         dispatch({
-//           type: UNLIKE_POST,
+export const unlikePost = (postId, userId) => {
+  return (dispatch) => {
+    authAxios
+      .put(`${apiUrl}/unlike-post/${postId}`, { userId, like: 0 })
+      .then((res) => {
+        dispatch({
+          type: UNLIKE_POST,
+          payload: { postId, userId },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
-//         });
-//       })
-//       .catch((err) => console.log(err));
-//   };
-// }
+export const updatePost = (postId, message) => {
+  return (dispatch) => {
+    authAxios
+      .put(`${apiUrl}/${postId}`, {message})
+      .then((res) => {
+        dispatch({
+          type: UPDATE_POST,
+          payload: { postId, message },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+}
+
+export const deletePost = (postId) => {
+  return (dispatch) => {
+    authAxios
+      .delete(`${apiUrl}/${postId}`)
+      .then((res) => {
+        dispatch({
+          type: DELETE_POST,
+          payload: postId,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+}

@@ -18,7 +18,6 @@ export const getUsers = ( ) =>{
                 type: GET_USERS,
                 payload: response.data
             })
-            // console.log(response.data);
         })
         .catch(error => { console.log(error) });
     }

@@ -15,18 +15,18 @@ exports.likePost = (req, res, next) => {
         .then(() => res.status(201).json({ message: "Like ajouté !" }))
         .catch((error) => res.status(400).json({ error }));
     }
-    //     // si like = 0 (likes = 0, pas de vote)
-    //     if (sauce.usersLiked.includes(req.body.userId) && req.body.like === 0) {
-    //       Post.updateOne(
-    //         { _id: req.params.id },
-    //         {
-    //           $inc: { likes: -1 },
-    //           $pull: { usersLiked: req.body.userId },
-    //         }
-    //       )
-    //         .then(() => res.status(201).json({ message: "Like supprimé !" }))
-    //         .catch((error) => res.status(400).json({ error }));
-    //     }
+
+    if (post.usersLiked.includes(req.body.userId) && req.body.like === 0) {
+      Post.updateOne(
+        { _id: req.params.id },
+        {
+          $inc: { likes: -1 },
+          $pull: { usersLiked: req.body.userId },
+        }
+      )
+        .then(() => res.status(201).json({ message: "Like supprimé !" }))
+        .catch((error) => res.status(400).json({ error }));
+    }
 
     //     //? ^^^^^^^^^^^^^^^^^^^^^^^ dislike ^^^^^^^^^^^^^^^^^^^^^^^^
   });

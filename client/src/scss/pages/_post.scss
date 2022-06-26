@@ -8,7 +8,7 @@
     width: 70%;
     margin: 10px auto;
 
-    .postContainer__header {
+    &__header {
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
@@ -33,19 +33,58 @@
         text-align: start;
     }
 
-    .update {
-        i.fa-pen-to-square {
+
+
+    .update-delete {
+        display: flex;
+
+        i.fa.fa-edit {
             margin-right: 30px;
+            color: rgba(156, 163, 175, 12);
 
             &:hover {
-                color: rgb(46 161 140);
+                color: rgb(105, 111, 122);
             }
         }
 
-        i.fa-trash-can {
+        i.fa.fa-trash {
             &:hover {
-                color: rgba(190, 18, 60, 1);
+                color: rgb(105, 111, 122);
             }
+        }
+    }
+
+    .textarea {
+        height: 70px;
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+        padding: 10px;
+        margin-top: 10px;
+        color: rgb(126 127 129);
+        font-size: 17px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .btn-updateItem {
+        background-color: rgba(156, 163, 175, 12);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(105, 111, 122);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
         }
     }
 
@@ -71,9 +110,12 @@
     }
 
     .like_comment {
-        .like, .comment {
+
+        .like,
+        .comment {
             display: flex;
         }
+
         span {
             margin-right: 7px;
             margin-top: 10px;
@@ -94,5 +136,38 @@
 
     .fa-solid.fa-heart {
         color: rgb(225, 29, 72);
+    }
+
+    .textarea {
+        // width: 100%;
+        height: 70px;
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+        padding: 10px;
+        margin-top: 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .btn-updateItem {
+        background-color: rgba(156, 163, 175, 12);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(105, 111, 122);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
     }
 }
