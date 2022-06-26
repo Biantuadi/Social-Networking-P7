@@ -2,14 +2,23 @@ const Post = require("../models/posts.model");
 const userModel = require("../models/user.model");
 const objectId = require("mongodb").ObjectID;
 
-exports.createPost = async (req, res) => {
+exports.createPost = (req, res) => {
+  const post = JSON.parse(req.body.post);
   const newPost = new Post({
-    ...req.body,
+    ...post,
+    imageUrl: `${req.protocol}://${req.get("host")}/images/${
+      req.file.filename
+    }`,
   });
   newPost
     .save()
-    .then(() => res.json("Post created!"))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .then((res) =>
+      res.status(201).json({
+        message: "post créer",
+        newPost: res,
+      })
+    )
+    .catch((err) => res.status(400).json({ err }));
 };
 
 exports.updatePost = (req, res) => {

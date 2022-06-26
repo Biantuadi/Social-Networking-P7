@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -6,23 +6,32 @@
     list-style-type: none;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     position: relative;
     color: #333;
-    background-color: #fff; 
+    background-color: #fff;
     overflow-x: hidden;
-    background-color: rgba(243,244,246,1);
+    background-color: rgba(243, 244, 246, 1);
 }
 
-.mainContainer__100vh{
+.mainContainer__100vh {
     width: 100%;
     height: 100vh;
 
 }
 
+.flou-appear {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(4px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    // z-index: 3;
+
+}

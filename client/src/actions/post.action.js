@@ -5,8 +5,12 @@ import axios from "axios";
 export const GET_POSTS = "GET_POSTS";
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
+// export const ADD_POST = "ADD_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
+
+// \\\\\\\\\\\\\\\\\\\\\\\\
+export const ADD_COMMENT = "ADD_COMMENT";
 
 const apiUrl = "http://localhost:3000/api/post";
 const authAxios = axios.create({
@@ -61,7 +65,7 @@ export const unlikePost = (postId, userId) => {
 export const updatePost = (postId, message) => {
   return (dispatch) => {
     authAxios
-      .put(`${apiUrl}/${postId}`, {message})
+      .put(`${apiUrl}/${postId}`, { message })
       .then((res) => {
         dispatch({
           type: UPDATE_POST,
@@ -70,7 +74,7 @@ export const updatePost = (postId, message) => {
       })
       .catch((err) => console.log(err));
   };
-}
+};
 
 export const deletePost = (postId) => {
   return (dispatch) => {
@@ -83,5 +87,23 @@ export const deletePost = (postId) => {
         });
       })
       .catch((err) => console.log(err));
-  }
-}
+  };
+};
+
+export const addComment = (postId, commenterId, text, commenterName) => {
+  return (dispatch) => {
+    authAxios
+      .put(`${apiUrl}/comment-post/${postId}`, {
+        commenterId,
+        text,
+        commenterName,
+      })
+      .then((res) => {
+        dispatch({
+          type: ADD_COMMENT,
+          payload: { postId },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};

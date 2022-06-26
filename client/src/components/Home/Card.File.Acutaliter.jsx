@@ -5,6 +5,7 @@ import { updatePost } from "../../actions/post.action";
 import { shortDateParser, isEmpty } from "../utils/Utils";
 import DeleteCard from "./Delete.Card";
 import LikeButton from "./Like.Button";
+import CommentCard from "./Comment";
 
 const CardAcutaliter = ({ post }) => {
   const [loadPost, setLoadPost] = React.useState(true);
@@ -14,6 +15,7 @@ const CardAcutaliter = ({ post }) => {
 
   const [isUpdated, setIsUpdated] = React.useState(false);
   const [TextUpdated, setTextUpdatedState] = React.useState(null);
+  const [showComment, setShowComment] = React.useState(false);
 
   const updateItem = (e) => {
     if (TextUpdated) {
@@ -63,6 +65,10 @@ const CardAcutaliter = ({ post }) => {
               </div>
             </div>
 
+            {/**
+             * user est le meme que l'auteur du post
+             */}
+
             {post.posterId === userData._id && (
               <div className="update-delete">
                 <i
@@ -70,8 +76,11 @@ const CardAcutaliter = ({ post }) => {
                   onClick={() => setIsUpdated(!isUpdated)}
                 ></i>
                 <DeleteCard post={post._id} />
+                
               </div>
             )}
+
+            {/* //////////////////////////// */}
           </div>
 
           <div className="viewPost">
@@ -104,9 +113,23 @@ const CardAcutaliter = ({ post }) => {
 
             <div className="comment">
               <span>{post.comments.length}</span>
-              <i className="fa-regular fa-comment"></i>
+                <i
+                  className="fa-regular fa-comment"
+                  onClick={() => {
+                    const flou = document.getElementById("flou");
+                    flou.classList.toggle("flou-appear");
+
+                    setShowComment(!showComment);
+                  }}
+                ></i>
             </div>
           </div>
+         {showComment && (
+          <>
+          <div className="flou" id="flou"></div>
+          <CommentCard post={post} key={post._id} />
+          </>
+         )}
         </>
       )}
     </div>

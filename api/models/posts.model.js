@@ -6,14 +6,13 @@ const postSchema = new mongoose.Schema(
     message: { type: String, required: true },
     imageUrl: { type: String },
     likes: { type: Number, default: 0 },
-    comments: { type: Array },
     usersLiked: { type: Array },
-    usersCommented: {
+    comments: {
       type: [
         {
           commenterId: String,
           commenterName: String,
-          comment: String,
+          text: String,
           timestamp: Number,
         },
       ],

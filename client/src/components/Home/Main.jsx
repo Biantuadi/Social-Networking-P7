@@ -6,6 +6,7 @@ import AllPosts from "./File.Actualite";
 const Main = () => {
   return (
     <div className="section_container">
+      <div className="" id="flou"></div>
       <Article />
       <AllPosts />
       <AsideUsers />

@@ -15,7 +15,7 @@ router.put("/like-post/:id", auth, likeAndUnlikeCtrl.likePost);
 router.put("/unlike-post/:id", auth, likeAndUnlikeCtrl.likePost);
 
 // comments
-// router.patch("/comment-post/:id", postCtrl.commentPost);
+router.put("/comment-post/:id", postCtrl.commentPost);
 // router.patch("/update-comment/:id", postCtrl.updateComment);
 // router.delete("/delete-comment/:id", postCtrl.deleteComment);
 
