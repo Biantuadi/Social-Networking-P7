@@ -76,7 +76,6 @@ const CardAcutaliter = ({ post }) => {
                   onClick={() => setIsUpdated(!isUpdated)}
                 ></i>
                 <DeleteCard post={post._id} />
-                
               </div>
             )}
 
@@ -113,23 +112,23 @@ const CardAcutaliter = ({ post }) => {
 
             <div className="comment">
               <span>{post.comments.length}</span>
-                <i
-                  className="fa-regular fa-comment"
-                  onClick={() => {
-                    const flou = document.getElementById("flou");
-                    flou.classList.toggle("flou-appear");
+              <i
+                className="fa-regular fa-comment"
+                onClick={() => {
+                  const flou = document.getElementById("flou");
+                  flou.classList.toggle("flou-appear");
 
-                    setShowComment(!showComment);
-                  }}
-                ></i>
+                  setShowComment(!showComment);
+                }}
+              ></i>
             </div>
           </div>
-         {showComment && (
-          <>
-          <div className="flou" id="flou"></div>
-          <CommentCard post={post} key={post._id} />
-          </>
-         )}
+          {showComment && (
+            <>
+              <div className="flou" id="flou"></div>
+              <CommentCard post={post} key={post._id} />
+            </>
+          )}
         </>
       )}
     </div>

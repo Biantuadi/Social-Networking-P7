@@ -3,7 +3,7 @@ const router = express.Router();
 
 const postCtrl = require("../controllers/posts.controller");
 const auth = require("../middleware/auth");
-const multer = require("../middleware/multer");
+// const multer = require("../middleware/multer");
 const likeAndUnlikeCtrl = require("../controllers/likeAndUnlike");
 
 router.get("/", auth, postCtrl.getPosts);

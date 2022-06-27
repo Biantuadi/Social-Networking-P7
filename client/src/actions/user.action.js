@@ -40,14 +40,14 @@ export const updateBio = (userId, bio) => {
   };
 };
 
-export const uploadAvatar = (userId, avatar) => {
+export const uploadAvatar = (data, userId) => {
   return (dispatch) => {
     authAxios
-      .put(`http://localhost:3000/api/user/${userId}`, { avatar })
+      .put(`http://localhost:3000/api/user/${userId}`, { data })
       .then((res) => {
         dispatch({
           type: UPLOAD_AVATAR,
-          payload: { avatar },
+          payload: { data },
         });
       })
       .catch((err) => console.log(err));

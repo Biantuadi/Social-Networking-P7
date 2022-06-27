@@ -136,8 +136,11 @@
         text-align: start;
         display: flex;
         justify-content: space-between;
-        i{
+
+        i.fa.fa-trash {
             transition: all 0.1s ease-in-out;
+            font-size: 20px;
+
             &:hover {
                 color: rgb(195, 22, 22);
             }

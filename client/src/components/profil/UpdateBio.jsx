@@ -53,14 +53,6 @@ const UpdateBio = () => {
                 <img src={userData.avatar} alt="" />
               </div>
 
-              <div>
-                <input
-                  type="text"
-                  disabled
-                  className="injected_img_path desappear"
-                />
-              </div>
-
               <UpdateImg />
               <br />
             </div>

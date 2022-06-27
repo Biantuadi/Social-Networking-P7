@@ -14,7 +14,7 @@ const Comment = ({ post }) => {
     if (text) {
       dispatch(addComment(post._id, userData._id, text, userData.name));
       dispatch(getPost());
-      setText("");
+      setText(".");
     }
   };
 
@@ -24,9 +24,9 @@ const Comment = ({ post }) => {
         {post.comments.map((comment, index) => {
           return (
             <>
-              <div className="each-user-comment" key={comment.commenterId}>
-                <div className="avatar-name-time" key={index}>
-                  <div className="avatar-name" key={index + "avatar and name"}>
+              <li className="each-user-comment" key={comment.commenterId}>
+                <div className="avatar-name-time" >
+                  <div className="avatar-name" >
                     <img
                       src={
                         !isEmpty(usersData[0]) &&
@@ -59,13 +59,13 @@ const Comment = ({ post }) => {
                   </span>
                 </div>
 
-                <div className="comment-text" key={index + "text"}>
+                <div className="comment-text" >
                   <p>{comment.text}</p>
                   {userData._id === comment.commenterId && (
                     <i className="fa fa-trash"></i>
                   )}
                 </div>
-              </div>
+              </li>
               <br />
             </>
           );

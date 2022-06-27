@@ -61,29 +61,15 @@ exports.logout = (req, res, next) => {
   } else {
     res.status(401).json({ message: "Vous n'êtes pas connecté !" });
   }
-
-
 };
 
 //? `\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 exports.updateUser = (req, res, next) => {
-  if (req.file) {
-    const image = req.file.filename;
-    const user = new User({
-      ...req.body,
-      avatar: image,
-    });
-    user
-      .save()
-      .then(() => res.status(201).json({ message: "Utilisateur modifié !" }))
-      .catch((err) => {
-        if (err.message.includes("name"))
-          res.status(409).json({ error: err, name: "Nom déjà pris !" });
-
-        if (err.message.includes("email"))
-          res.status(409).json({ error: err, email: "Email déjà utilisé !" });
-      }).catch((err) => res.status(500).json({ error: err }));
+  if (req.file == null) {
+    User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+      .then(() => res.status(200).json({ message: " utulisateur modifié !" }))
+      .catch((error) => res.status(400).json({ error: error }));
   }
 };
 

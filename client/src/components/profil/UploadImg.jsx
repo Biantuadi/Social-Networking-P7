@@ -7,36 +7,43 @@ const UpdateImg = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userReducer);
 
-  const fileName = (e) => {
-    // setFile(e.target.files[0]);
-    // const injectedImg = document.querySelector(".injected_img_path");
-    // injectedImg.value = e.target.files[0].name;
-    // injectedImg.classList.remove("desappear");
-    // injectedImg.classList.add("appear");
-  };
-
   const handlePicture = (e) => {
-    // e.preventDefault();
-    // dispatch(uploadAvatar(userData._id, file));
+    e.preventDefault();
+    const data = new FormData();
+    data.append("file", file);
+    data.append("userId", userData._id);
+
+    dispatch(uploadAvatar(data, userData._id));
   };
 
   return (
-    <form action="" className="upload_img" onSubmit={handlePicture}>
-      <div className="icon_UpdateImg">
-        <label htmlFor="file-input">
-          <i className="fa-solid fa-image" onClick={fileName}></i>
-        </label>
+    <>
+      <div>
         <input
-          type="file"
-          id="file-input"
-          className="file-input"
-          name="file"
-          accept=".jpg, .jpeg, .png"
-          onChange={fileName}
+          type="text"
+          disabled
+          className="injected_img_path desappear"
+          placeholder="Changer d'image"
+          value={file ? file.name : ""}
         />
       </div>
-      <input type="submit" value="Envoyer" className="Upload" />
-    </form>
+      <form action="" className="upload_img" onSubmit={handlePicture}>
+        <div className="icon_UpdateImg">
+          <label htmlFor="file-input">
+            <i className="fa-solid fa-image"></i>
+          </label>
+          <input
+            type="file"
+            id="file-input"
+            className="file-input"
+            name="file"
+            accept=".jpg, .jpeg, .png"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+        </div>
+        <input type="submit" value="Envoyer" className="Upload" />
+      </form>
+    </>
   );
 };
 
