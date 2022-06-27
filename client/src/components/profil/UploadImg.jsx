@@ -1,11 +1,11 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { uploadPicture } from "../../actions/user.action";
+import { useDispatch, useSelector } from "react-redux";
+import { uploadAvatar } from "../../actions/user.action";
 
 const UpdateImg = () => {
-  // const [file, setFile] = React.useState(null);
-  // const dispatch = useDispatch();
-  // const userData = useSelector((state) => state.userReducer);
+  const [file, setFile] = React.useState(null);
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.userReducer);
 
   const fileName = (e) => {
     // setFile(e.target.files[0]);
@@ -16,14 +16,15 @@ const UpdateImg = () => {
   };
 
   const handlePicture = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // dispatch(uploadAvatar(userData._id, file));
   };
 
   return (
     <form action="" className="upload_img" onSubmit={handlePicture}>
       <div className="icon_UpdateImg">
         <label htmlFor="file-input">
-          <i className="fa-solid fa-image"></i>
+          <i className="fa-solid fa-image" onClick={fileName}></i>
         </label>
         <input
           type="file"

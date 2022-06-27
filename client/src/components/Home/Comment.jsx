@@ -20,7 +20,7 @@ const Comment = ({ post }) => {
 
   return (
     <>
-      <div className="comment-card" key={"1"}>
+      <div className="comment-card" key={post._id}>
         {post.comments.map((comment, index) => {
           return (
             <>
@@ -61,6 +61,9 @@ const Comment = ({ post }) => {
 
                 <div className="comment-text" key={index + "text"}>
                   <p>{comment.text}</p>
+                  {userData._id === comment.commenterId && (
+                    <i className="fa fa-trash"></i>
+                  )}
                 </div>
               </div>
               <br />

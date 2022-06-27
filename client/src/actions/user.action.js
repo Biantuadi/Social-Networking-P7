@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
+export const UPLOAD_AVATAR = "UPLOAD_AVATAR";
 
 const apiUrl = "http://localhost:3000/api/user";
 const authAxios = axios.create({
@@ -38,3 +39,17 @@ export const updateBio = (userId, bio) => {
       .catch((err) => console.log(err));
   };
 };
+
+export const uploadAvatar = (userId, avatar) => {
+  return (dispatch) => {
+    authAxios
+      .put(`http://localhost:3000/api/user/${userId}`, { avatar })
+      .then((res) => {
+        dispatch({
+          type: UPLOAD_AVATAR,
+          payload: { avatar },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+}
