@@ -7,7 +7,7 @@ const auth = require("../middleware/auth");
 const likeAndUnlikeCtrl = require("../controllers/likeAndUnlike");
 
 router.get("/", auth, postCtrl.getPosts);
-router.post("/", auth, postCtrl.createPost);
+// router.post("/", auth, postCtrl.createPost);
 router.put("/:id", auth, postCtrl.updatePost);
 router.delete("/:id", auth, postCtrl.deletePost);
 
