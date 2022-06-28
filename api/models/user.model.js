@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    role: { type: String, default: "user" },
     bio: {
       type: String,
       default:
@@ -25,7 +26,8 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: "http://localhost:3000/images/maxresdefault.jpg",
+      default:
+        "https://img.myloview.fr/papiers-peints/humain-homme-personne-avatar-profil-utilisateur-vector-icon-illustration-700-80657983.jpg",
     },
   },
   { timestamps: true }
