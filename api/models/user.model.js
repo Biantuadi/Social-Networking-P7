@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true, 
+      required: true,
     },
     bio: {
       type: String,
@@ -25,8 +25,9 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
+      default: "http://localhost:3000/images/maxresdefault.jpg",
     },
-  }, 
+  },
   { timestamps: true }
 );
 

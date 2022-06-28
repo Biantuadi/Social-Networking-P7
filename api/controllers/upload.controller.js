@@ -1,17 +1,32 @@
 const UserModel = require("../models/user.model");
-// const fs = require("fs");
+const fs = require("fs");
 
 exports.uploadProfil = (req, res) => {
-  //! TODO: upload image to cloudinary
-  const thing = new UserModel({
-    avatar: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
-  });
-  thing
-    .save()
-    .then(() => {
-      res.status(201).json({ message: "Thing created!" });
-    })
-    .catch((err) => {
-      res.status(404).json({ message: err });
-    });
+  if (req.file != null) {
+    UserModel.findOne({ _id: req.body.userId })
+      .then((user) => {
+        const filename = user.avatar.split("/images/")[1];
+        fs.unlink(`images/${filename}`, (err) => {
+          UserModel.findOneAndUpdate(
+            { _id: req.body.userId },
+            {
+              $set: {
+                avatar: `${req.protocol}://${req.get("host")}/images/${
+                  req.file.filename
+                }`,
+              },
+            }
+          )
+            .then((user) => {
+              res.send(user);
+            })
+            .catch((err) => {
+              res.json(err);
+            });
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 };

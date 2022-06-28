@@ -17,6 +17,6 @@ router.get("/:id", auth, userCtrl.getUser);
 router.put("/:id", auth, userCtrl.updateUser);
 
 // Upload avatar
-router.post("/avatar",  multer, uploadAvatarCtrl.uploadProfil);
+router.post("/avatar", auth, multer, uploadAvatarCtrl.uploadProfil);
 
 module.exports = router;
