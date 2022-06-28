@@ -3,9 +3,9 @@ import axios from "axios";
 //post
 
 export const GET_POSTS = "GET_POSTS";
+export const ADD_POST = "ADD_POST"; 
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
-// export const ADD_POST = "ADD_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 
@@ -33,6 +33,20 @@ export const getPost = () => {
       .catch((err) => console.log(err));
   };
 };
+
+export const addPost = (data, userId) => {
+  return (dispatch) => {
+    authAxios
+      .post(`${apiUrl}/`, data)
+      .then((res) => {
+        // dispatch({
+        //   type: ADD_POST,
+        //   payload: res.data,
+        // });
+      })
+      .catch((err) => console.log(err));
+  };
+}
 
 export const likePost = (postId, userId) => {
   return (dispatch) => {
@@ -107,3 +121,5 @@ export const addComment = (postId, commenterId, text, commenterName) => {
       .catch((err) => console.log(err));
   };
 };
+
+

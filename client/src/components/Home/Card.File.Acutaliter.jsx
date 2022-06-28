@@ -102,7 +102,7 @@ const CardAcutaliter = ({ post }) => {
 
             {/* //////////////////// */}
 
-            {post.picture && <img src={post.picture} alt="post_image" />}
+            {post.imageUrl && <img src={post.imageUrl} alt="post_image" />}
           </div>
 
           <div className="iconImgAndPost like_comment">

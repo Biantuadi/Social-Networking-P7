@@ -1,8 +1,30 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { addPost, getPost } from "../../actions/post.action";
 
 const MainSend = () => {
   const [message, setMessage] = React.useState("");
+  const [postPicture, setPostPicture] = React.useState("");
   const [file, setFile] = React.useState(null);
+  const userData = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  const handlePost = (e) => {
+    
+    const data = new FormData();
+    data.append("posterId", userData._id);
+    data.append("message", message);
+    if (file) data.append("file", file);
+
+    dispatch(addPost(data, userData._id));
+    dispatch(getPost());
+  };
+
+  const handlePicture = (e) => {
+    setFile(e.target.files[0]);
+    setPostPicture(URL.createObjectURL(e.target.files[0]));
+  };
 
   return (
     <main className="mainContainer__new_post">
@@ -10,7 +32,7 @@ const MainSend = () => {
         <h1>Ajouter une publication</h1>
         <br />
 
-        <form className="forContainer">
+        <div className="forContainer">
           <textarea
             name="text"
             rows="14"
@@ -23,17 +45,16 @@ const MainSend = () => {
           ></textarea>
           <br />
           <br />
-          <br />
 
-          <div className="containerImg">
-            <input
-              type="text"
-              disabled
-              className="container-name-picture"
-              placeholder="Changer d'image"
-              value={file ? file.name : ""}
-            />
-          </div>
+          {postPicture && (
+            <div className="containerImg">
+              <img
+                src={postPicture}
+                alt="postPicture"
+                className="postPicture"
+              />
+            </div>
+          )}
 
           <div className="iconImgAndPost">
             <label htmlFor="file-input">
@@ -45,14 +66,16 @@ const MainSend = () => {
               className="file-input"
               name="file"
               accept=".jpg, .jpeg, .png"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => handlePicture(e)}
             />
 
-            <button type="submit">
-              <i className="fa-solid fa-paper-plane"></i>
-            </button>
+            <NavLink to="/home">
+              <button  onClick={handlePost}>
+                <i className="fa-solid fa-paper-plane"></i>
+              </button>
+            </NavLink>
           </div>
-        </form>
+        </div>
       </div>
     </main>
   );

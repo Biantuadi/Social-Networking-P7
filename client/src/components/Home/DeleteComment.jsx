@@ -9,7 +9,7 @@ const DeleteComment = ({ comment, postId }) => {
   const userId = localStorage.getItem("uid");
   const dispatch = useDispatch();
 
-//   const handleDelete = () => dispatch(deleteComment(postId, comment._id));
+  const handleDelete = () => dispatch(deleteComment(postId, comment._id));
 
   useEffect(() => {
     const checkAuthor = () => {
@@ -31,7 +31,7 @@ const DeleteComment = ({ comment, postId }) => {
                 "vous êtes sur le point de supprimer ce commentaire"
               )
             ) {
-            //   handleDelete();
+              handleDelete();
             }
           }}
         ></i>

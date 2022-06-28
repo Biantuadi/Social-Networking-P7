@@ -14,7 +14,7 @@ const Comment = ({ post }) => {
     if (text) {
       dispatch(addComment(post._id, userData._id, text, userData.name));
       dispatch(getPost());
-      setText(".");
+      setText("");
     }
   };
 

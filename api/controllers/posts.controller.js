@@ -1,22 +1,32 @@
 const Post = require("../models/posts.model");
 const userModel = require("../models/user.model");
-const objectId = require("mongodb").ObjectID;
 
-// exports.createPost = (req, res) => {
-//   const post = JSON.parse(req.body.post);
-//   const newPost = new Post({
-//     ...post,
-//   });
-//   newPost
-//     .save()
-//     .then((res) =>
-//       res.status(201).json({
-//         message: "post créer",
-//         newPost: res,
-//       })
-//     )
-//     .catch((err) => res.status(400).json({ err }));
-// };
+exports.createPost = (req, res) => {
+  if (req.file != null) {
+    const post = new Post({
+      ...req.body,
+      posterId: req.body.posterId,
+      message: req.body.message,
+      imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        req.file.filename
+      }`,
+    });
+    post
+      .save()
+      .then((post) => res.json(post))
+      .catch((err) => res.status(400).json("Error: " + err));
+  } else {
+    const post = new Post({
+      ...req.body,
+      posterId: req.body.posterId,
+      message: req.body.message,
+    });
+    post
+      .save()
+      .then((post) => res.json(post))
+      .catch((err) => res.status(400).json("Error: " + err));
+  }
+};
 
 exports.updatePost = (req, res) => {
   let post = req.body;

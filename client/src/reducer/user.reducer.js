@@ -9,12 +9,8 @@ export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER:
       return action.payload;
-    // case UPLOAD_PROFIL:
-    //   return{
-    //     ...state,
-    //     avatar: action.payload
-    //   }
-    case UPDATE_BIO:
+   
+      case UPDATE_BIO:
       return {
         ...state,
         bio: action.payload,
