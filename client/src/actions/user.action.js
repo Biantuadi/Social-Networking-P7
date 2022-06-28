@@ -43,13 +43,18 @@ export const updateBio = (userId, bio) => {
 export const uploadAvatar = (data, userId) => {
   return (dispatch) => {
     authAxios
-      .put(`http://localhost:3000/api/user/${userId}`, { data })
+      .post(`http://localhost:3000/api/user/avatar`, data)
       .then((res) => {
-        dispatch({
-          type: UPLOAD_AVATAR,
-          payload: { data },
-        });
+        authAxios
+          .get(`http://localhost:3000/api/user/${userId}`)
+          .then((res) => {
+            dispatch({
+              type: UPLOAD_AVATAR,
+              payload: res.data.avatar,
+            });
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
-}
+};
