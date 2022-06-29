@@ -37,7 +37,7 @@ const SignupModal = () => {
             const tonken = res.data.token;
             localStorage.setItem("jwt", tonken);
             localStorage.setItem("uid", userId);
-            window.location = "/";
+            window.location = "/home";
           })
           .catch((err) => {
             console.log(err);

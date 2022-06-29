@@ -8,6 +8,9 @@
     width: 70%;
     margin: 10px auto;
     position: relative;
+    @media (max-width: 768px) {
+        width: 95%;
+    }
 
     &__header {
         display: flex;
