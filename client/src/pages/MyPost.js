@@ -3,8 +3,8 @@ import Auth from "../components/log/Auth";
 import { UidContext } from "../components/AppContex";
 
 //?================= Components    ============================
-import Header from "../components/Post/Header";
-import Main from "../components/Post/Main.Send";
+import Header from "../components/MyPost/Header";
+import Main from "../components/MyPost/Main.Send";
 
 const NewPost = () => {
   const uid = React.useContext(UidContext);

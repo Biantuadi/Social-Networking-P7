@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { dateParser } from "../utils/Utils";
+import { dateParser } from "../../utils/Utils";
 
 const Article = () => {
   const userData = useSelector((state) => state.userReducer);

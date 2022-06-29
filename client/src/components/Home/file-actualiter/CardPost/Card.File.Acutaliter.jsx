@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updatePost } from "../../actions/post.action";
-import { shortDateParser, isEmpty } from "../utils/Utils";
+import { updatePost } from "../../../../actions/post.action";
+import { shortDateParser, isEmpty } from "../../../utils/Utils";
 import DeleteCard from "./Delete.Card";
-import LikeButton from "./Like.Button";
-import CommentCard from "./Comment";
-import { roleToken } from "../../token/Token";
+import LikeButton from "../../Like.Button";
+import CommentCard from "../comments/Comment";
+import { roleToken } from "../../../../token/Token";
 
 const CardAcutaliter = ({ post }) => {
   const [loadPost, setLoadPost] = React.useState(true);

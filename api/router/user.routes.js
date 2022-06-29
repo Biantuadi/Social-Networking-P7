@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userCtrl = require("../controllers/user.controller");
 const auth = require("../middleware/auth");
-const uploadAvatarCtrl = require("../controllers/upload.controller");
+const uploadAvatarCtrl = require("../controllers/upload.profil.controller");
 const multer = require("../middleware/multer");
 
 // Sign up and login routes

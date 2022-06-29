@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../actions/post.action";
+import { deletePost } from "../../../../actions/post.action";
 
 const DeleteCard = ({ post }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const DeleteCard = ({ post }) => {
     dispatch(deletePost(post));
   };
 
-  return (
+  return ( 
     <>
       <i
         className="fa fa-trash"

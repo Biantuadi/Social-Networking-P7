@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { deleteComments, getPosts } from "../../actions/post.action";
+import { deleteComments, getPosts } from "../../../../actions/post.action";
 
 const DeleteComment = ({ postId, comment }) => {
   const [isAuthor, setIsAuthor] = React.useState(false);

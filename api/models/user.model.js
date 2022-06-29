@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
     bio: {
       type: String,
       default:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam impedit aliquam consequuntur odio amet eum accusamus explicabo corporis, est magni. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ea nulla a",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam impedit aliquam consequuntur odio amet eum accusamus explicabo corporis, est magni. ",
     },
     avatar: {
       type: String,

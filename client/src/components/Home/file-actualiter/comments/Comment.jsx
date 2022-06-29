@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addComment, getPosts } from "../../actions/post.action";
-import { timeStampParser } from "../utils/Utils";
-import { isEmpty } from "../utils/Utils";
+import { addComment, getPosts } from "../../../../actions/post.action";
+import { timeStampParser } from "../../../utils/Utils";
+import { isEmpty } from "../../../utils/Utils";
 import DeleteComment from "./DeleteComment";
 
 const Comment = ({ post }) => {
