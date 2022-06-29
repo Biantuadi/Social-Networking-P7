@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadAvatar } from "../../actions/user.action";
-import { getUsers } from "../../actions/users.action";
 
 const UpdateImg = () => {
   const [file, setFile] = React.useState(null);

@@ -12,8 +12,6 @@ const index = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/my-post" element={<NewPost />} />
-        {/* <Roote path="*" element={<Redirect to="" />} /> */}
-        {/* <Navigate path="*"  to="/" /> */}
         <Route path="*" element={<Navigate replace to="/home" />} />
       </Routes>
     </Router>

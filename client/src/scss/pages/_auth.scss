@@ -10,14 +10,27 @@ header.headerAuth{
 .container{
     position: relative;
     height: 100vh;
-    .main__div__container{
+    background: none;
+    width: 100%;
+    .back-ground{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         position: relative;
         height: 100%;
-    }
-    .back-ground{
-        position: absolute;
-    top: -25px;
-    left: -36px;
+        img{
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            top: 50%;
+            left: 43%;
+            transform: translate(-50%, -50%);
+            margin-top: 37vh;
+        
+        }
     }
 }
 
@@ -27,7 +40,7 @@ main.mainAuth{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #007893dd;
+    background: rgb(190 18 60 / 77%);
     color: white;
     border-radius: 30px;
     padding: 60px;
@@ -35,6 +48,8 @@ main.mainAuth{
     text-align: center;
     display: flex;
     flex-direction: column;
+    z-index: 3;
+    margin-top: 30px;
     .containerNavAuth{
         .auth__nav{
             display: flex;
@@ -47,14 +62,13 @@ main.mainAuth{
                 // background: #e31d2d;
                 padding: 10px 15px;
                 border-radius: 20px;
-                // border: 1px solid rgba(225, 223, 223, 0.949);
                 &:hover{
                     background: #fff;
-                    color: #007893dd;
+                    color: rgb(190 18 60 / 92%);
                 }
             }
             .nav-active{
-                color: #007893dd;
+                color: rgb(190 18 60 / 92%);
                 background: #fff;
                 &::after{
                     width: 100%;
@@ -75,7 +89,7 @@ main.mainAuth{
         width: 100%;
         padding: 10px;
         border-radius: 10px;
-        border: 1px solid #007793;
+        border: 1px solid rgb(190 18 60 / 92%);
         margin-bottom: 10px;
         font-size: 17px;
         &:focus{
@@ -87,7 +101,7 @@ main.mainAuth{
         margin: auto;
         padding: 12px 10px;
         border-radius: 15px;
-        color: #007893dd;
+        color: rgb(190 18 60 / 92%);
         text-align: center;
         font-weight: bold;
         background: #fff;
@@ -96,7 +110,7 @@ main.mainAuth{
         cursor: pointer;
         transition: all 0.1s linear;
         &:hover{
-            background-color: #007893dd;
+            background-color: rgb(190 18 60 / 92%);
             color: #fff;
         }
     }
@@ -114,5 +128,19 @@ main.mainAuth{
         color: #c21826db;
         margin-top: -1px;
         font-weight: bold;
+    }
+}
+
+@media (max-width: 768px) {
+    .form__auth{
+        .btn-auth{
+            width: 80%;
+        }
+    }
+    .containerNavAuth{
+
+        .auth__nav{
+            justify-content: space-between;
+        }
     }
 }

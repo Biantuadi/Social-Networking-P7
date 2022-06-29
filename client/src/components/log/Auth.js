@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import background from "../../img/imgbin_empresa-business-service-computer-software-png.png";
+import background from "../../img/Logos/icon-left-font.svg";
 import SignupForm from "./SignupModal";
 import LoginForm from "./LoginModal";
 import logo from "../../img/Logos/icon-left-font-monochrome-black.png";
@@ -29,6 +29,7 @@ const Auth = () => {
             </NavLink>
           </div>
         </header>
+        <br />
 
         <div className="main__div__container">
 
@@ -56,7 +57,6 @@ const Auth = () => {
               </li>
             </ul>
           </div>
-          <br />
           <br />
 
           {Signup && <SignupForm />}
