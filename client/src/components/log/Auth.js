@@ -9,6 +9,9 @@ const Auth = () => {
   const [Signup, setSignupModal] = useState(false);
   const [Login, setLoginModal] = useState(true);
 
+  // const body = document.querySelector("body");
+  // body.style.backgroundColor = "#fff";
+
   const handleModals = (e) => {
     if (e.target.id === "signup") {
       setSignupModal(true);
@@ -21,6 +24,7 @@ const Auth = () => {
 
   return (
     <>
+
       <div className="container">
         <header className="headerAuth">
           <div className="header__img">
@@ -30,6 +34,8 @@ const Auth = () => {
           </div>
         </header>
         <br />
+
+        
 
         <div className="main__div__container">
 
