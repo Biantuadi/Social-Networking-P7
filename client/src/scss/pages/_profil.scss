@@ -5,6 +5,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
 
 
@@ -21,6 +26,10 @@
         justify-content: center;
         align-items: center;
         margin-top: 28px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin-top: 0;
+        }
     }
 
 
@@ -31,6 +40,9 @@
         padding: 17px;
         width: 700px;
         margin-bottom: 30px;
+        @media (max-width: 768px) {
+            width: 95%;
+        }
 
     }
 
@@ -41,6 +53,9 @@
         flex-direction: column;
         justify-content: center;
         margin-right: 60px;
+        @media (max-width: 768px) {
+            margin-right: 0;
+        }
 
         form.upload_img {
             display: flex;

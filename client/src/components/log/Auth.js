@@ -9,8 +9,7 @@ const Auth = () => {
   const [Signup, setSignupModal] = useState(false);
   const [Login, setLoginModal] = useState(true);
 
-  // const body = document.querySelector("body");
-  // body.style.backgroundColor = "#fff";
+ 
 
   const handleModals = (e) => {
     if (e.target.id === "signup") {
@@ -24,50 +23,45 @@ const Auth = () => {
 
   return (
     <>
-
       <div className="container">
         <header className="headerAuth">
           <div className="header__img">
-            <NavLink to="/">
+            <NavLink to="/home">
               <img src={logo} alt="img_Logo" className="imgLogo" />
             </NavLink>
           </div>
         </header>
         <br />
 
-        
-
         <div className="main__div__container">
-
-        <div className="back-ground">
-          <img src={background} alt="" />
-        </div>
-
-        
-        <main className="mainAuth">
-          <div className="containerNavAuth">
-            <ul className="auth__nav">
-              <li
-                onClick={handleModals}
-                id="signup"
-                className={Signup ? "nav-active" : ""}
-              >
-                Signup
-              </li>
-              <li
-                onClick={handleModals}
-                id="login"
-                className={Login ? "nav-active" : ""}
-              >
-                Login
-              </li>
-            </ul>
+          <div className="back-ground">
+            <img src={background} alt="" />
           </div>
-          <br />
 
-          {Signup && <SignupForm />}
-          {Login && <LoginForm />}
-        </main>
+          <main className="mainAuth">
+            <div className="containerNavAuth">
+              <ul className="auth__nav">
+                <li
+                  onClick={handleModals}
+                  id="signup"
+                  className={Signup ? "nav-active" : ""}
+                >
+                  Signup
+                </li>
+                <li
+                  onClick={handleModals}
+                  id="login"
+                  className={Login ? "nav-active" : ""}
+                >
+                  Login
+                </li>
+              </ul>
+            </div>
+            <br />
+
+            {Signup && <SignupForm />}
+            {Login && <LoginForm />}
+          </main>
         </div>
       </div>
     </>

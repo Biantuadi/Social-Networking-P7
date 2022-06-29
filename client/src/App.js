@@ -9,6 +9,11 @@ const App = () => {
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
 
+  const body = document.querySelector("body");
+
+  if (localStorage.getItem("uid") === null)
+    body.classList.add("background-login");
+
   useEffect(() => {
     setUid(localStorage.getItem("uid"));
     dispatch(getUser(localStorage.getItem("uid")));
