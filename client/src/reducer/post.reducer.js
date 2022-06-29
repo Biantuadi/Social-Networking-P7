@@ -27,8 +27,9 @@ export default function postReducer(state = initialState, action) {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            usersLiked: post.usersLiked.filter( (id) => id !== action.payload.userId),
-            
+            usersLiked: post.usersLiked.filter(
+              (id) => id !== action.payload.userId
+            ),
           };
         }
         return post;

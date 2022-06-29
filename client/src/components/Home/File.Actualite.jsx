@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getPost } from "../../actions/post.action";
+import { getPosts } from "../../actions/post.action";
 import { isEmpty } from "../../components/utils/Utils";
 import Card from "./Card.File.Acutaliter";
 
@@ -13,17 +13,17 @@ const Post = () => {
 
   useEffect(() => {
     if (loadPost) {
-      dispatsh(getPost());
-      setLoadPost(false); 
+      dispatsh(getPosts());
+      setLoadPost(false);
     }
-  }, [loadPost]);
+  }, [loadPost, dispatsh]);
 
   return (
     <>
       <main className="mainContainer__post">
         {!isEmpty(posts[0]) &&
           posts.map((post) => {
-            return <Card post={post} key={post._id} />;
+            return <Card post={post} key={post._id + 2} />;
           })}
         <br />
       </main>

@@ -38,3 +38,19 @@ export const isEmpty = (value) => {
     (typeof value === "string" && value.trim().length === 0)
   );
 };
+
+export const timeStampParser = (date) => {
+  let options = {
+    hour: "2-digit",
+    minute: "2-digit",
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
+  let dateObj = new Date(date).toLocaleDateString("fr-FR", options);
+
+  return dateObj.toString();
+
+}

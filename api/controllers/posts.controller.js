@@ -2,11 +2,10 @@ const Post = require("../models/posts.model");
 const userModel = require("../models/user.model");
 
 exports.createPost = (req, res) => {
-  if (req.file != null) {
+  if (req.file) {
     const post = new Post({
       ...req.body,
       posterId: req.body.posterId,
-      message: req.body.message,
       imageUrl: `${req.protocol}://${req.get("host")}/images/${
         req.file.filename
       }`,
@@ -45,6 +44,7 @@ exports.deletePost = async (req, res) => {
 
 exports.getPosts = async (req, res) => {
   Post.find()
+    .sort({ createdAt: -1 })
     .then((posts) => res.json(posts))
     .catch((err) => res.status(400).json("Error: " + err));
 };
@@ -102,7 +102,24 @@ exports.unlikePost = async (req, res) => {
 exports.commentPost = async (req, res) => {
   Post.findByIdAndUpdate(
     req.params.id,
-    { $push: { comments: req.body } },
+    {
+      $push: {
+        comments: {
+          ...req.body,
+          timestamp: new Date().getTime(),
+        },
+      },
+    },
+    { new: true }
+  )
+    .then((post) => res.json(post))
+    .catch((err) => res.status(400).json("Error: " + err));
+};
+
+exports.deleteComment = (req, res) => {
+  Post.findByIdAndUpdate(
+    req.params.id,
+    { $pull: { comments: { _id: req.body.commentId } } },
     { new: true }
   )
     .then((post) => res.json(post))

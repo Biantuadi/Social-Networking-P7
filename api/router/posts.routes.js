@@ -17,6 +17,6 @@ router.put("/unlike-post/:id", auth, likeAndUnlikeCtrl.likePost);
 // comments
 router.put("/comment-post/:id", postCtrl.commentPost);
 // router.patch("/update-comment/:id", postCtrl.updateComment);
-// router.delete("/delete-comment/:id", postCtrl.deleteComment);
+router.delete("/delete-comment/:id", postCtrl.deleteComment);
 
 module.exports = router;

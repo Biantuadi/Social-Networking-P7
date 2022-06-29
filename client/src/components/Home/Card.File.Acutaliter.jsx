@@ -6,6 +6,7 @@ import { shortDateParser, isEmpty } from "../utils/Utils";
 import DeleteCard from "./Delete.Card";
 import LikeButton from "./Like.Button";
 import CommentCard from "./Comment";
+import { roleToken } from "../../token/Token";
 
 const CardAcutaliter = ({ post }) => {
   const [loadPost, setLoadPost] = React.useState(true);
@@ -66,10 +67,10 @@ const CardAcutaliter = ({ post }) => {
             </div>
 
             {/**
-             * user est le meme que l'auteur du post
+             * user est le meme que l'auteur du post || roleToken === "admin"
              */}
 
-            {post.posterId === userData._id && (
+            {post.posterId === userData._id || roleToken === "admin" ? (
               <div className="update-delete">
                 <i
                   className="fa fa-edit"
@@ -77,7 +78,7 @@ const CardAcutaliter = ({ post }) => {
                 ></i>
                 <DeleteCard post={post._id} />
               </div>
-            )}
+            ) : null}
 
             {/* //////////////////////////// */}
           </div>
@@ -126,7 +127,7 @@ const CardAcutaliter = ({ post }) => {
           {showComment && (
             <>
               <div className="flou" id="flou"></div>
-              <CommentCard post={post} key={post._id} />
+              <CommentCard post={post} />
             </>
           )}
         </>
