@@ -70,12 +70,17 @@ const CardAcutaliter = ({ post }) => {
              * user est le meme que l'auteur du post || roleToken === "admin"
              */}
 
-            {post.posterId === userData._id || roleToken === "admin" ? (
+            {post.posterId === userData._id  ? (
               <div className="update-delete">
                 <i
                   className="fa fa-edit"
                   onClick={() => setIsUpdated(!isUpdated)}
                 ></i>
+                <DeleteCard post={post._id} />
+              </div>
+            ) : null}
+            { roleToken === "admin" ? (
+              <div className="update-delete">
                 <DeleteCard post={post._id} />
               </div>
             ) : null}

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteComments, getPosts } from "../../../../actions/post.action";
+import { roleToken } from "../../../../token/Token";
 
 const DeleteComment = ({ postId, comment }) => {
   const [isAuthor, setIsAuthor] = React.useState(false);
@@ -24,7 +25,7 @@ const DeleteComment = ({ postId, comment }) => {
 
   return (
     <>
-      {isAuthor && (
+      {isAuthor || roleToken === "admin" ? (
         <i
           className="fa fa-trash"
           onClick={() => {
@@ -36,7 +37,8 @@ const DeleteComment = ({ postId, comment }) => {
               handleDelete();
           }}
         ></i>
-      )}
+      ) : null}
+
     </>
   );
 };

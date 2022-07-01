@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const AllUsers = () => {
   const usersData = useSelector((state) => state.usersReducer);
-  const [isAdmin , setIsAdmin] = React.useState(false);
 
   const allusers = usersData.map((user) => {
     return (
@@ -19,12 +18,12 @@ const AllUsers = () => {
   return (
     <aside className="asideHome">
       <div className="divContainer">
-        <h2>Utulisateurs</h2>
+        <h2>Utilisateurs</h2>
         <br />
 
         <ul className="eachUser">{allusers}</ul>
       </div>
-    </aside>
+    </aside> 
   );
 };
 

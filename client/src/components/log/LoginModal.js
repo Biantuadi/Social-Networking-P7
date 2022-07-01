@@ -26,7 +26,6 @@ const LoginModal = () => {
         localStorage.setItem("jwt", tonken);
         localStorage.setItem("uid", userId);
         window.location = "/home";
-        // }
       })
       .catch((err) => {
         if (err.response.data.email) {
