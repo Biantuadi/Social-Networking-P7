@@ -45,11 +45,13 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             userId: user._id,
-            token: jwt.sign({ 
-              userId: user._id,
-              role: user.role,
-
-             }, process.env.JWT_KEY),
+            token: jwt.sign(
+              {
+                userId: user._id,
+                role: user.role,
+              },
+              process.env.JWT_KEY
+            ),
           });
         })
         .catch((err) => res.status(500).json({ error: err }));
@@ -57,15 +59,6 @@ exports.login = (req, res, next) => {
     .catch((err) => res.status(500).json({ error: err }));
 };
 
-exports.logout = (req, res, next) => {
-  const removeToken = localStorage.removeItem("token");
-  const removeUserId = localStorage.removeItem("userId");
-  if (removeToken && removeUserId) {
-    res.status(200).json({ message: "Déconnexion réussie !" });
-  } else {
-    res.status(401).json({ message: "Vous n'êtes pas connecté !" });
-  }
-};
 
 //? `\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -75,6 +68,12 @@ exports.updateUser = (req, res, next) => {
       .then(() => res.status(200).json({ message: " utulisateur modifié !" }))
       .catch((error) => res.status(400).json({ error: error }));
   }
+};
+
+exports.deleteUser = (req, res, next) => {
+  User.findByIdAndDelete(req.params.id)
+    .then(() => res.status(200).json({ message: "Utilisateur supprimé !" }))
+    .catch((err) => res.status(500).json({ error: err }));
 };
 
 exports.getUser = (req, res, next) => {

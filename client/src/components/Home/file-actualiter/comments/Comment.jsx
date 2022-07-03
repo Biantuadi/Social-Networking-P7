@@ -10,7 +10,6 @@ const Comment = ({ post }) => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
   const [text, setText] = React.useState("");
-  // const [isAuthor, setIsAuthor] = React.useState(false);
 
   const handleComment = (e) => {
     e.preventDefault();

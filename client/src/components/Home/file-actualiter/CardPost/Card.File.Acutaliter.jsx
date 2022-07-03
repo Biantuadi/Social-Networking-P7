@@ -70,7 +70,7 @@ const CardAcutaliter = ({ post }) => {
              * user est le meme que l'auteur du post || roleToken === "admin"
              */}
 
-            {post.posterId === userData._id  ? (
+            {post.posterId === userData._id ? (
               <div className="update-delete">
                 <i
                   className="fa fa-edit"
@@ -79,7 +79,8 @@ const CardAcutaliter = ({ post }) => {
                 <DeleteCard post={post._id} />
               </div>
             ) : null}
-            { roleToken === "admin" ? (
+
+            {roleToken === "admin" && post.posterId !== userData._id ? (
               <div className="update-delete">
                 <DeleteCard post={post._id} />
               </div>
@@ -100,6 +101,7 @@ const CardAcutaliter = ({ post }) => {
                   defaultValue={post.message}
                   onChange={(e) => setTextUpdatedState(e.target.value)}
                 />
+
                 <button className="btn-updateItem Upload" onClick={updateItem}>
                   Valider les modifications
                 </button>

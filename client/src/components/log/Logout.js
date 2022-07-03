@@ -5,7 +5,7 @@ const Logout = () => {
     localStorage.removeItem("uid");
     localStorage.removeItem("jwt");
 
-    window.location = "/home";
+    window.location.reload();
   };
   return (
     <>

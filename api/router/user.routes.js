@@ -9,12 +9,12 @@ const multer = require("../middleware/multer");
 // Sign up and login routes
 router.post("/signup", userCtrl.signup);
 router.post("/login", userCtrl.login);
-router.get("/logout", userCtrl.logout);
 
 // User routes
 router.get("/", auth, userCtrl.getAllUsers);
 router.get("/:id", auth, userCtrl.getUser);
 router.put("/:id", auth, userCtrl.updateUser);
+router.delete("/:id", userCtrl.deleteUser);
 
 // Upload avatar
 router.post("/avatar", auth, multer, uploadAvatarCtrl.uploadProfil);

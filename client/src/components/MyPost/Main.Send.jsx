@@ -31,7 +31,7 @@ const MainSend = () => {
 
   const changeMessage = (e) => {
     setMessage(e.target.value);
-    if (e.target.value.length > 0) {
+    if (e.target.value.length > 0 && file) {
       setIsFull(true);
     } else {
       setIsFull(false);
