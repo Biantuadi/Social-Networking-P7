@@ -13,7 +13,7 @@ export const DELETE_POST = "DELETE_POST";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
-const apiUrl = "http://localhost:3000/api/post";
+const apiUrl = "https://my-app-back.adaptable.app/api/post";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers: {

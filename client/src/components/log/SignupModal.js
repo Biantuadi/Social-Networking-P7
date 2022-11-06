@@ -14,7 +14,7 @@ const SignupModal = () => {
 
     axios({
       method: "POST",
-      url: `http://localhost:3000/api/user/signup`,
+      url: `https://my-app-back.adaptable.app/api/user/signup`,
 
       data: {
         name: name,
@@ -25,7 +25,7 @@ const SignupModal = () => {
       .then(() => {
         axios({
           method: "POST",
-          url: `http://localhost:3000/api/user/login`,
+          url: `https://my-app-back.adaptable.app/api/user/login`,
 
           data: {
             email: email,

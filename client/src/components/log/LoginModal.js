@@ -13,7 +13,7 @@ const LoginModal = () => {
 
     axios({
       method: "POST",
-      url: `http://localhost:3000/api/user/login`,
+      url: `https://my-app-back.adaptable.app/api/user/login`,
 
       data: {
         email: email,
