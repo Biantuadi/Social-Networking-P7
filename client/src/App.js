@@ -12,7 +12,8 @@ const App = () => {
   const body = document.querySelector("body");
 
   if (localStorage.getItem("uid") === null)
-    body.classList.add("background-login");
+    return body.classList.add("background-login");
+    
 
   useEffect(() => {
     setUid(localStorage.getItem("uid"));
