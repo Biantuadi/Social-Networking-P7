@@ -13,7 +13,7 @@ const LoginModal = () => {
 
     axios({
       method: "POST",
-      url: `https://my-app-back.adaptable.app/api/user/login`,
+      url: `https://api-alpha-indol.vercel.app/api/user/login`,
 
       data: {
         email: email,

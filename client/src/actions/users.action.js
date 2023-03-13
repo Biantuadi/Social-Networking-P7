@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GET_USERS = "GET_USERS";
 
-const apiUrl = "https://my-app-back.adaptable.app/api/user";
+const apiUrl = "https://api-alpha-indol.vercel.app/api/user";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers: {
@@ -13,7 +13,7 @@ const authAxios = axios.create({
 export const getUsers = () => {
   return (dispatch) => {
     authAxios
-      .get("https://my-app-back.adaptable.app/api/user")
+      .get("https://api-alpha-indol.vercel.app/api/user")
       .then((response) => {
         dispatch({
           type: GET_USERS,

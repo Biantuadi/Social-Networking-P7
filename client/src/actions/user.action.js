@@ -4,7 +4,7 @@ export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
 export const UPLOAD_AVATAR = "UPLOAD_AVATAR";
 
-const apiUrl = "https://my-app-back.adaptable.app/api/user";
+const apiUrl = "https://api-alpha-indol.vercel.app/api/user";
 const authAxios = axios.create({
   baseURL: apiUrl,
   headers: {
@@ -15,7 +15,7 @@ const authAxios = axios.create({
 export const getUser = (uid) => {
   return (dispatch) => {
     authAxios
-      .get(`https://my-app-back.adaptable.app/api/user/${uid}`)
+      .get(`https://api-alpha-indol.vercel.app/api/user/${uid}`)
       .then((res) => {
         dispatch({
           type: GET_USER,
@@ -29,7 +29,7 @@ export const getUser = (uid) => {
 export const updateBio = (userId, bio) => {
   return (dispatch) => {
     authAxios
-      .put(`https://my-app-back.adaptable.app/api/user/${userId}`, { bio })
+      .put(`https://api-alpha-indol.vercel.app/api/user/${userId}`, { bio })
       .then((res) => {
         dispatch({
           type: UPDATE_BIO,
@@ -43,10 +43,10 @@ export const updateBio = (userId, bio) => {
 export const uploadAvatar = (data, userId) => {
   return (dispatch) => {
     authAxios
-      .post(`https://my-app-back.adaptable.app/api/user/avatar`, data)
+      .post(`https://api-alpha-indol.vercel.app/api/user/avatar`, data)
       .then((res) => {
         authAxios
-          .get(`https://my-app-back.adaptable.app/api/user/${userId}`)
+          .get(`https://api-alpha-indol.vercel.app/api/user/${userId}`)
           .then((res) => {
             dispatch({
               type: UPLOAD_AVATAR,

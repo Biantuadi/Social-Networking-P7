@@ -80,8 +80,9 @@ const MainSend = () => {
               accept=".jpg, .jpeg, .png"
               onChange={(e) => handlePicture(e)}
             />
+            
 
-            {isFull === true && (
+            {isFull  && (
               <NavLink to="/home">
                 <button onClick={handlePost}>
                   <i className="fa-solid fa-paper-plane"></i>
@@ -89,7 +90,7 @@ const MainSend = () => {
               </NavLink>
             )}
 
-            {isFull === false && (
+            {!isFull && (
               <button onClick={handlePost} disabled>
                 <i
                   className="fa-solid fa-paper-plane"

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Routes from "./router/";
 import { UidContext } from "./components/AppContex";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.action";
 
 const App = () => {
-  const [uid, setUid] = useState(null);
+  const storedUid = localStorage.getItem("uid");
+  const [uid, setUid] = useState(storedUid);
   const dispatch = useDispatch();
 
-  const body = document.querySelector("body");
-
-  if (localStorage.getItem("uid") === null)
-    return body.classList.add("background-login");
-    
+  useEffect(() => {
+    if (storedUid !== uid) {
+      setUid(storedUid);
+    }
+  }, [storedUid]);
 
   useEffect(() => {
-    setUid(localStorage.getItem("uid"));
-    dispatch(getUser(localStorage.getItem("uid")));
-
+    if (uid) {
+      dispatch(getUser(uid));
+    }
     window.addEventListener("load", () => {
       let loader = document.querySelector(".loader");
       loader.style.display = "none";

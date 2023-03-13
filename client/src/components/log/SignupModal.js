@@ -14,7 +14,7 @@ const SignupModal = () => {
 
     axios({
       method: "POST",
-      url: `https://my-app-back.adaptable.app/api/user/signup`,
+      url: `https://api-alpha-indol.vercel.app/api/user/signup`,
 
       data: {
         name: name,
@@ -25,7 +25,7 @@ const SignupModal = () => {
       .then(() => {
         axios({
           method: "POST",
-          url: `https://my-app-back.adaptable.app/api/user/login`,
+          url: `https://api-alpha-indol.vercel.app/api/user/login`,
 
           data: {
             email: email,
